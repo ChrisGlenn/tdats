@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmhqa14sdoxhk"]
+[gd_scene load_steps=13 format=3 uid="uid://bmhqa14sdoxhk"]
 
 [ext_resource type="Texture2D" uid="uid://b0dimkwm3tshg" path="res://Sprites/Characters.png" id="1_e3thf"]
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_gcv7a"]
@@ -18,6 +18,14 @@ region = Rect2(80, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m57fl"]
 atlas = ExtResource("1_e3thf")
 region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gicp"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfjs2"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbi2g"]
 atlas = ExtResource("1_e3thf")
@@ -48,7 +56,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_m57fl")
 }],
 "loop": true,
-"name": &"walkSide",
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gicp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfjs2")
+}],
+"loop": true,
+"name": &"walkRight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -82,34 +101,37 @@ shape = SubResource("RectangleShape2D_x0ijo")
 
 [node name="RayUL" type="RayCast2D" parent="."]
 position = Vector2(2, 2)
-target_position = Vector2(0, -10)
+target_position = Vector2(0, -8)
 
 [node name="RayUR" type="RayCast2D" parent="."]
 position = Vector2(14, 2)
-target_position = Vector2(0, -10)
+target_position = Vector2(0, -8)
 
 [node name="RayDL" type="RayCast2D" parent="."]
 position = Vector2(2, 14)
-target_position = Vector2(0, 10)
+target_position = Vector2(0, 8)
 
 [node name="RayDR" type="RayCast2D" parent="."]
 position = Vector2(14, 14)
-target_position = Vector2(0, 10)
+target_position = Vector2(0, 8)
 
 [node name="RayLU" type="RayCast2D" parent="."]
 position = Vector2(2, 2)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-8, 0)
 
 [node name="RayLL" type="RayCast2D" parent="."]
 position = Vector2(2, 14)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-8, 0)
 
 [node name="RayRU" type="RayCast2D" parent="."]
 position = Vector2(14, 2)
-target_position = Vector2(10, 0)
+target_position = Vector2(8, 0)
 
 [node name="RayRL" type="RayCast2D" parent="."]
 position = Vector2(14, 14)
-target_position = Vector2(10, 0)
+target_position = Vector2(8, 0)
 
 [node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(8, 32)

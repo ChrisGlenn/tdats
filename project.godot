@@ -12,6 +12,7 @@ config_version=5
 
 config/name="The Darkness and the Sword"
 config/description="The OG"
+run/main_scene="res://Scenes/DEBUG/Demo/demo.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

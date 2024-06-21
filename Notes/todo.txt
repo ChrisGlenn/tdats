@@ -2,11 +2,15 @@ TO-DO LIST(ALPHA):
 -- These 'todos' are pre-testing after testing they will be 'pruned' and some of --
 -- them will be reset based on what works and what doesn't --
 [] Player
-    [] Grid Movement
-    [] Collision (Raycast2D)
+    [x] Grid Movement
+    [x] Collision (Raycast2D)
+    [] Player Animation
+    [] Player Animation w/ Weapons and/or Shields
     [] Interaction (Bump Based)
     [] Combat
+    [] Spells
     [] Stats (Equipment Mods)
+    [] Leveling Up
 [] HUD
     [] Player HP/HP Max
     [] Player XP/XP Next
@@ -14,10 +18,21 @@ TO-DO LIST(ALPHA):
     [] Player Item MP
     [] Player/Enemy HP Bar
     [] Main Menu
+    [] Game Menu
+        [] Equipment/Inventory
+        [] Save
+        [] Load
+        [] Status
+        [] Quit
+[] NPC Template
 [] UI
     [] Main Menu
     [] Game Menu/Pause Menu
         [] Equipment Screen
+        [] Status Screen
+        [] Quest Journal
+        [] Load Screen
+        [] Save Screen
 
 
 
