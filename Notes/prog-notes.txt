@@ -1,0 +1,92 @@
+extends CharacterBody2D
+# PLAYER SCRIPT
+# player input/movement are mostly controlled here with stats, combat, ect being handled in another script
+@onready var RAY = $RayCast2D
+@onready var SPRITE = $AnimatedSprite2D
+const TILE_SIZE : int = 8 # movement tile size
+var player_speed : float = 60.0 # movement speed
+var is_moving : bool = false # is moving check
+var move_direction : int = -4 # 0 for up clockwise to 3 or left
+var player_position = Vector2.ZERO
+var target_position = Vector2.ZERO
+
+
+func _ready():
+    player_position = position # set starting position
+
+func _physics_process(delta):
+    player_movement(delta) # player movement function
+
+
+func player_movement(clock):
+    if !is_moving:
+        # if the player is NOT moving, check for inputs
+        if Input.is_action_pressed("td_UP"):
+            SPRITE.play("walkUp")
+            target_position.y = player_position.y - TILE_SIZE # set target position
+            move_direction = 0 # set move direction to UP
+            SPRITE.flip_h = false # horizontal flip
+            is_moving = true # player is moving!
+        elif Input.is_action_pressed("td_RIGHT"):
+            SPRITE.play("walkSide")
+            target_position.x = player_position.x + TILE_SIZE # set target position
+            move_direction = 1 # set move direction to RIGHT
+            SPRITE.flip_h = true # horizontal flip
+            is_moving = true # player is moving!
+        elif Input.is_action_pressed("td_DOWN"):
+            SPRITE.play("walkDown")
+            target_position.y = player_position.y + TILE_SIZE # set target position
+            move_direction = 2 # set move direction to DOWN
+            SPRITE.flip_h = false # horizontal flip
+            is_moving = true # player is moving!
+        elif Input.is_action_pressed("td_LEFT"):
+            target_position.x = player_position.x - TILE_SIZE # set target position
+            move_direction = 3 # set move direction to LEFT
+            SPRITE.flip_h = false # horizontal flip
+            is_moving = true # player is moving!
+        else:
+            if move_direction != -4: move_direction = -4 # reset move direction
+    else:
+        # check the move direction and move
+        if move_direction == 0:
+            # moving up
+            if position.y > target_position.y:
+                position.y -= player_speed * clock # move the player
+            else:
+                if !Input.is_action_pressed("td_UP"):
+                    position.y = target_position.y # set the player to this target
+                    SPRITE.stop()
+                    player_position = position
+                    move_direction = -4
+                    is_moving = false
+                else:
+                    target_position.y -= TILE_SIZE # reset position
+        elif move_direction == 1:
+            # moving right
+            if position.x < target_position.x:
+                position.x += player_speed * clock # move the player
+            else:
+                if !Input.is_action_pressed("td_RIGHT"):
+                    position.x = target_position.x # set the player to this target
+                    SPRITE.stop()
+                    player_position = position
+                    move_direction = -4
+                    is_moving = false
+                else:
+                    target_position.x += TILE_SIZE # reset position
+        elif move_direction == 2:
+            # moving down
+            if position.y < target_position.y:
+                position.y += player_speed * clock # move the player
+            else:
+                if !Input.is_action_pressed("td_DOWN"):
+                    position.y = target_position.y # set the player to this target
+                    SPRITE.stop()
+                    player_position = position
+                    move_direction = -4
+                    is_moving = false
+                else:
+                    target_position.y += TILE_SIZE # reset position
+    # DEBUG
+    if Input.is_action_just_pressed("td_END"):
+        get_tree().quit() # quit the game

@@ -1,0 +1,40 @@
+TO-DO LIST(ALPHA):
+-- These 'todos' are pre-testing after testing they will be 'pruned' and some of --
+-- them will be reset based on what works and what doesn't --
+[] Player
+    [] Grid Movement
+    [] Collision (Raycast2D)
+    [] Interaction (Bump Based)
+    [] Combat
+    [] Stats (Equipment Mods)
+[] HUD
+    [] Player HP/HP Max
+    [] Player XP/XP Next
+    [] Player Gold
+    [] Player Item MP
+    [] Player/Enemy HP Bar
+    [] Main Menu
+[] UI
+    [] Main Menu
+    [] Game Menu/Pause Menu
+        [] Equipment Screen
+
+
+
+ALPHA BUG-FIX LIST:
+
+
+TO-DO LIST(BETA):
+TO-DO LIST(RELEASE):
+
+FINAL EXPORT:
+[ ]  Remove Debug/Shortcut Keys
+[ ]  Hide System Icons (NPC Spawner, Ect)
+[ ]  Remove Debug PRINT messages (ie. 'quitting')
+[ ]  Test Across Platforms (Controllers Also)
+[ ]  Icons (MacOS, Win, Linux)
+[ ]  Set Version Info
+[ ]  Set Release Date
+[ ]  Windows
+[ ]  MacOS
+[ ]  Linux

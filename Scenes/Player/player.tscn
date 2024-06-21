@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmhqa14sdoxhk"]
+
+[ext_resource type="Texture2D" uid="uid://b0dimkwm3tshg" path="res://Sprites/Characters.png" id="1_e3thf"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_gcv7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwr4n"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jqbi"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvlog"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m57fl"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbi2g"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcf3a"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibgry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwr4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jqbi")
+}],
+"loop": true,
+"name": &"walkDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvlog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m57fl")
+}],
+"loop": true,
+"name": &"walkSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbi2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcf3a")
+}],
+"loop": true,
+"name": &"walkUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ijo"]
+size = Vector2(12, 14)
+
+[node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
+script = ExtResource("1_gcv7a")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ibgry")
+animation = &"walkDown"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 9)
+shape = SubResource("RectangleShape2D_x0ijo")
+
+[node name="RayUL" type="RayCast2D" parent="."]
+position = Vector2(2, 2)
+target_position = Vector2(0, -10)
+
+[node name="RayUR" type="RayCast2D" parent="."]
+position = Vector2(14, 2)
+target_position = Vector2(0, -10)
+
+[node name="RayDL" type="RayCast2D" parent="."]
+position = Vector2(2, 14)
+target_position = Vector2(0, 10)
+
+[node name="RayDR" type="RayCast2D" parent="."]
+position = Vector2(14, 14)
+target_position = Vector2(0, 10)
+
+[node name="RayLU" type="RayCast2D" parent="."]
+position = Vector2(2, 2)
+target_position = Vector2(-10, 0)
+
+[node name="RayLL" type="RayCast2D" parent="."]
+position = Vector2(2, 14)
+target_position = Vector2(-10, 0)
+
+[node name="RayRU" type="RayCast2D" parent="."]
+position = Vector2(14, 2)
+target_position = Vector2(10, 0)
+
+[node name="RayRL" type="RayCast2D" parent="."]
+position = Vector2(14, 14)
+target_position = Vector2(10, 0)
+
+[node name="Raycasts" type="Node2D" parent="."]
