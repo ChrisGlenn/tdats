@@ -3,6 +3,7 @@ TO-DO LIST(ALPHA):
 -- them will be reset based on what works and what doesn't --
 [] Player
     [x] Grid Movement
+    [] Player Bump Back
     [x] Collision (Raycast2D)
     [] Player Animation
     [] Player Animation w/ Weapons and/or Shields
