@@ -99,37 +99,21 @@ centered = false
 position = Vector2(8, 9)
 shape = SubResource("RectangleShape2D_x0ijo")
 
-[node name="RayUL" type="RayCast2D" parent="."]
-position = Vector2(2, 2)
-target_position = Vector2(0, -8)
+[node name="RayUP" type="RayCast2D" parent="."]
+position = Vector2(8, 6)
+target_position = Vector2(0, -14)
 
-[node name="RayUR" type="RayCast2D" parent="."]
-position = Vector2(14, 2)
-target_position = Vector2(0, -8)
+[node name="RayLEFT" type="RayCast2D" parent="."]
+position = Vector2(6, 8)
+target_position = Vector2(-14, 0)
 
-[node name="RayDL" type="RayCast2D" parent="."]
-position = Vector2(2, 14)
-target_position = Vector2(0, 8)
+[node name="RayDOWN" type="RayCast2D" parent="."]
+position = Vector2(8, 10)
+target_position = Vector2(0, 14)
 
-[node name="RayDR" type="RayCast2D" parent="."]
-position = Vector2(14, 14)
-target_position = Vector2(0, 8)
-
-[node name="RayLU" type="RayCast2D" parent="."]
-position = Vector2(2, 2)
-target_position = Vector2(-8, 0)
-
-[node name="RayLL" type="RayCast2D" parent="."]
-position = Vector2(2, 14)
-target_position = Vector2(-8, 0)
-
-[node name="RayRU" type="RayCast2D" parent="."]
-position = Vector2(14, 2)
-target_position = Vector2(8, 0)
-
-[node name="RayRL" type="RayCast2D" parent="."]
-position = Vector2(14, 14)
-target_position = Vector2(8, 0)
+[node name="RayRIGHT" type="RayCast2D" parent="."]
+position = Vector2(10, 8)
+target_position = Vector2(14, 0)
 
 [node name="Raycasts" type="Node2D" parent="."]
 

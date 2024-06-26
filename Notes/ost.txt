@@ -1,0 +1,12 @@
+OST LIST
+The music for TDATS
+
+[] Main Theme (main menu)
+[] Tower Levels
+    # there is one main theme that is played for each level (other than some special cases like the cave)
+    # but gets more complex/distressing as the player progresses through the levels
+    [] Level 1 Theme
+    [] Poriah's Theme
+    [] Boss Theme
+    [] Fight Theme
+    [] Victory Theme

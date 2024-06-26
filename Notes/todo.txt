@@ -3,15 +3,35 @@ TO-DO LIST(ALPHA):
 -- them will be reset based on what works and what doesn't --
 [] Player
     [x] Grid Movement
-    [] Player Bump Back
-    [x] Collision (Raycast2D)
+    [] Collision (Raycast2D)
     [] Player Animation
     [] Player Animation w/ Weapons and/or Shields
-    [] Interaction (Bump Based)
-    [] Combat
     [] Spells
     [] Stats (Equipment Mods)
     [] Leveling Up
+[] Combat
+    [] Initial Contact Message
+    [] Stat Initialization (who starts first, ect.)
+    [] Player Movement (grid 'steps')
+        [] Player 'Escape'
+    [] Player Menu
+        [] Attack
+            [] Melee Attack
+            [] Ranged Attack
+        [] Spells
+        [] Item
+        [] Parry
+        [] Pass
+    [] Team Member One Menu
+        [] Attack
+        [] Item
+        [] Parry
+        [] Pass 
+    [] Team Member One Menu
+        [] Attack
+        [] Item
+        [] Parry
+        [] Pass 
 [] HUD
     [] Player HP/HP Max
     [] Player XP/XP Next
@@ -20,7 +40,8 @@ TO-DO LIST(ALPHA):
     [] Player/Enemy HP Bar
     [] Main Menu
     [] Game Menu
-        [] Equipment/Inventory
+        [] Equipment
+        [] Inventory
         [] Save
         [] Load
         [] Status
