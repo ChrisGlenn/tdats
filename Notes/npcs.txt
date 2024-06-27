@@ -1,0 +1,10 @@
+NPC LIST
+The new names of the NPC's from the Design Document
+
+Renoilt = Renoilt (Half/Skodian) M
+Manneth = Sareth M
+Marah = Moriah F
+Sarhom = Sahra F
+Jodusa = Joshua M
+
+Annesarai = Jezebel F

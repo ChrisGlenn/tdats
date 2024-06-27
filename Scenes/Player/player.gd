@@ -22,21 +22,26 @@ func player_input():
     if Input.is_action_pressed("td_UP"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayUP.is_colliding():
+            $AnimatedSprite2D.play("walkUp") # start walk animation
             input_direction = Vector2.UP # change direction to UP
     elif Input.is_action_pressed("td_RIGHT"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayRIGHT.is_colliding():
+            $AnimatedSprite2D.play("walkRight") # start walk animation
             input_direction = Vector2.RIGHT # change direction to RIGHT
     elif Input.is_action_pressed("td_DOWN"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayDOWN.is_colliding():
+            $AnimatedSprite2D.play("walkDown") # start walk animation
             input_direction = Vector2.DOWN # change direction to DOWN
     elif Input.is_action_pressed("td_LEFT"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayLEFT.is_colliding():
+            $AnimatedSprite2D.play("walkLeft") # start walk animation
             input_direction = Vector2.LEFT # change direction to LEFT
     else:
         player_state = "IDLE" # set player state to IDLE
+        $AnimatedSprite2D.stop() # stop the animation
     # *********
     # DEBUG
     # *********
