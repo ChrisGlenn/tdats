@@ -11,13 +11,21 @@ var player_max_hp : int = 100 # maximum player hit points
 var player_xp : int = 0 # player's current XP
 var player_xp_max : int = 100
 var player_level_xp : Array = [0, 500, 1000, 1500, 2000, 2500, 3000] # stores the next level's xp goal
+var player_str : int = 10 # player strength (attack strength)
+var player_int : int = 10 # player intelligence (spell strength)
+var player_agi : int = 10 # player agility (speed)
+var player_end : int = 10 # player endurance (hardiness/defense)
+var player_chr : int = 10 # player charisma (speech)
+var player_lck : int = 10 # player luck (gets lucky)
 var player_inventory_weapons : Array = [0,0,0,0,0,0] # player's weapons
 var player_inventory_armor : Array = [0,0,0,0,0,0] # player's armor
 var player_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
 var player_inventory_items : Array = [0,0,0,0,0,0] # player's items
 
 # party variables
-var party_size : int = 1 # the size of the current party (this is subject to change)
+var party_members : Array = [] # the party members (string : names)
+# party member (name here)
+var member_one_name : String = ""
 
 # combat variables
 var current_enemy # the enemy the player is attacking
