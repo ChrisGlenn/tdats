@@ -6,7 +6,9 @@ const TILE_SIZE : int = 16 # movement tile size
 var player_speed : float = 0.26 # movement speed
 var player_state : String = "IDLE" # begins at 'IDLE'
 var is_moving : bool = false # is moving check
+var can_interact : bool = false # is true if ray is colliding w/ object or NPC
 var input_direction # movement vector
+var current_collider # any interactable the player rays may be colliding with
 
 
 func _ready():
@@ -42,6 +44,16 @@ func player_input():
     else:
         player_state = "IDLE" # set player state to IDLE
         $AnimatedSprite2D.stop() # stop the animation
+    # check for interactable collisions (they will be in the group INTERACT)
+    if $RayUP.is_colliding():
+        current_collider = $RayUP.get_collider()
+        if current_collider.is_in_group("INTERACT"):
+            current_collider.is_active = true
+    else:
+        if current_collider:
+            if current_collider.is_in_group("INTERACT"): 
+                current_collider.is_active = false
+                current_collider = null
     # *********
     # DEBUG
     # *********

@@ -102,18 +102,22 @@ shape = SubResource("RectangleShape2D_x0ijo")
 [node name="RayUP" type="RayCast2D" parent="."]
 position = Vector2(8, 6)
 target_position = Vector2(0, -14)
+collide_with_areas = true
 
 [node name="RayLEFT" type="RayCast2D" parent="."]
 position = Vector2(6, 8)
 target_position = Vector2(-14, 0)
+collide_with_areas = true
 
 [node name="RayDOWN" type="RayCast2D" parent="."]
 position = Vector2(8, 10)
 target_position = Vector2(0, 14)
+collide_with_areas = true
 
 [node name="RayRIGHT" type="RayCast2D" parent="."]
 position = Vector2(10, 8)
 target_position = Vector2(14, 0)
+collide_with_areas = true
 
 [node name="Raycasts" type="Node2D" parent="."]
 

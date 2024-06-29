@@ -31,3 +31,6 @@ var member_one_name : String = ""
 var current_enemy # the enemy the player is attacking
 var current_enemy_hp : int = 0 # the HP of the current enemy for the HUD
 var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
+
+# system variables
+var timer_ctrl : int = 100 # timer control

@@ -10,6 +10,7 @@ TO-DO LIST(ALPHA):
     [] Stats (Equipment Mods)
     [] Leveling Up
 [] Combat
+    [] Combat System (the actual combat system for the game...)
     [] Initial Contact Message
     [] Stat Initialization (who starts first, ect.)
     [] Player Movement (grid 'steps')
@@ -46,8 +47,13 @@ TO-DO LIST(ALPHA):
         [] Load
         [] Status
         [] Quit
+[] Interactions
+    [] Chests
+        [] Chests Recording
 [] NPC Template
 [] UI
+    [] Fade In/Out
+        [] Scene Change
     [] Main Menu
     [] Game Menu/Pause Menu
         [] Equipment Screen

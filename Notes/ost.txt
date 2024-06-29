@@ -2,6 +2,8 @@ OST LIST
 The music for TDATS
 
 [] Main Theme (main menu)
+[] Interior Theme (all the Paprii Interiors)
+[] Paprii Theme (plays in the city)
 [] Tower Levels
     # there is one main theme that is played for each level (other than some special cases like the cave)
     # but gets more complex/distressing as the player progresses through the levels

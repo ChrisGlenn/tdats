@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7yl57j3cdg88"]
+
+[ext_resource type="Texture2D" uid="uid://b0dimkwm3tshg" path="res://Sprites/Characters.png" id="1_rnpdc"]
+[ext_resource type="Script" path="res://Scripts/Templates/npc_template.gd" id="1_u76ci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb24e"]
+size = Vector2(16, 16)
+
+[node name="Renoilt" type="Area2D" groups=["INTERACT"]]
+script = ExtResource("1_u76ci")
+npc_name = "Renoilt"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rnpdc")
+centered = false
+hframes = 16
+vframes = 32
+frame = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_kb24e")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 16)
+collide_with_areas = true
