@@ -1,0 +1,27 @@
+TOWER
+The levels of the tower, and their themes...
+(see documentation as well)
+
+LEVEL ONE:
+Barracks, this is the level that is above the ground. It's mostly full of weak guards who fight for Obsidius and guard the city. 
+Documentation: N/A
+Boss: Large Mutt Guard w/ guards
+Theme: Barracks 
+Color: Blue
+
+LEVEL TWO:
+The first level below ground. This is where the living quarters are for the workers who's job it is to mine. This is where the majority of the civilians are kept.
+Documentation: Last party member is found here.
+Boss: 
+Theme: Miner's Quarters 
+Color: Brown
+
+LEVEL THREE:
+Mining equipment is stored here along with another set of guard barracks and a research center.
+
+LEVEL FOUR:
+LEVEL FIVE:
+LEVEL SIX:
+LEVEL SEVEN:
+LEVEL EIGHT:
+LEVEL NINE:

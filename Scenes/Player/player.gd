@@ -24,34 +24,44 @@ func player_input():
     if Input.is_action_pressed("td_UP"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayUP.is_colliding():
-            $AnimatedSprite2D.play("walkUp") # start walk animation
+            player_state = "UP"
             input_direction = Vector2.UP # change direction to UP
     elif Input.is_action_pressed("td_RIGHT"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayRIGHT.is_colliding():
-            $AnimatedSprite2D.play("walkRight") # start walk animation
             input_direction = Vector2.RIGHT # change direction to RIGHT
     elif Input.is_action_pressed("td_DOWN"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayDOWN.is_colliding():
-            $AnimatedSprite2D.play("walkDown") # start walk animation
             input_direction = Vector2.DOWN # change direction to DOWN
     elif Input.is_action_pressed("td_LEFT"):
         # check the raycast collision and do a 'slide' if the player is at a corner
         if !$RayLEFT.is_colliding():
-            $AnimatedSprite2D.play("walkLeft") # start walk animation
             input_direction = Vector2.LEFT # change direction to LEFT
     else:
         player_state = "IDLE" # set player state to IDLE
-        $AnimatedSprite2D.stop() # stop the animation
+    # PLAYER STATES
     # check for interactable collisions (they will be in the group INTERACT)
-    if $RayUP.is_colliding():
-        current_collider = $RayUP.get_collider()
-        if current_collider.is_in_group("INTERACT"):
-            current_collider.is_active = true
-    else:
-        if current_collider:
-            if current_collider.is_in_group("INTERACT"): 
+    # play animations depending on state
+    if player_state == "IDLE":
+        if $RayUP.is_colliding():
+            current_collider = $RayUP.get_collider()
+            if current_collider.is_in_group("INTERACT"):
+                current_collider.is_active = true # set as active
+        elif $RayRIGHT.is_colliding():
+            current_collider = $RayRIGHT.get_collider()
+            if current_collider.is_in_group("INTERACT"):
+                current_collider.is_active = true # set as active
+        elif $RayDOWN.is_colliding():
+            current_collider = $RayDOWN.get_collider()
+            if current_collider.is_in_group("INTERACT"):
+                current_collider.is_active = true # set as active
+        elif $RayLEFT.is_colliding():
+            current_collider = $RayLEFT.get_collider()
+            if current_collider.is_in_group("INTERACT"):
+                current_collider.is_active = true # set as active
+        else:
+            if current_collider != null and current_collider.is_in_group("INTERACT"):
                 current_collider.is_active = false
                 current_collider = null
     # *********

@@ -61,6 +61,11 @@ TO-DO LIST(ALPHA):
         [] Quest Journal
         [] Load Screen
         [] Save Screen
+    [] Map
+        [] Paprii
+        [] Dungeon Levels
+        [] Map 'Exploration' (Map will reveal as player moves)
+        [] Map Labels/Icons
 
 
 

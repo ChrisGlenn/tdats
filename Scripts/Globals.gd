@@ -5,12 +5,17 @@ var game_stage : int = 0 # used to track main story progress
 var current_stage : String = "Paprii City" # the current location of the player
 
 # player variables
+var player_name : String = "Adan" # player's name
 var player_level : int = 1 # player level
-var player_hp : int = 100 # player hit points
-var player_max_hp : int = 100 # maximum player hit points
+var player_hp : int = 25 # player hit points
+var player_max_hp : int = 25 # maximum player hit points
+var player_mp : int = 5 # player's starting mp
+var player_max_mp : int = 5 # player's starting max mp
 var player_xp : int = 0 # player's current XP
-var player_xp_max : int = 100
+var player_xp_max : int = 100 # max XP to next level
 var player_level_xp : Array = [0, 500, 1000, 1500, 2000, 2500, 3000] # stores the next level's xp goal
+var player_level_hp : Array = []
+var player_level_mp : Array = []
 var player_str : int = 10 # player strength (attack strength)
 var player_int : int = 10 # player intelligence (spell strength)
 var player_agi : int = 10 # player agility (speed)

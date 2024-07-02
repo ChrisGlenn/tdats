@@ -10,8 +10,9 @@ extends Node
 @export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
+var is_moving : bool = false # if the NPC is moving
 var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
-var move_speed : float = 0
+var move_speed : float = 0.50 # NPC movement speed
 
 
 func _ready():
@@ -24,12 +25,15 @@ func _ready():
                 will_wonder = false # turn off wondering
     # check if the NPC should spawn randomly
     if change_start_position and start_positions.size() > 0:
-        #var random_position = Vector2(RNG.randi_range(0, start_positions.size()))
-        #print(str(random_position))
-        #self.position = Vector2(random_position.x, random_position.y)
-        pass
+        var random_array_position = RNG.randi_range(0, start_positions.size())
+        self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
 
 func _process(_delta):
     if is_active:
         if Input.is_action_just_pressed("td_DEBUG"):
             print("I AM RENOILT")
+
+
+func npc_movement():
+    # npc movement function
+    pass
