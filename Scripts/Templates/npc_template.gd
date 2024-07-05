@@ -16,24 +16,24 @@ var move_speed : float = 0.50 # NPC movement speed
 
 
 func _ready():
-    RNG.randomize() # seed the random
-    # check the story beats
-    if npc_story_beats.size() > 0:
-        for n in npc_story_beats.size():
-            if npc_story_beats[n] == Globals.game_stage:
-                change_start_position = false # stop the NPC from spawning randomly
-                will_wonder = false # turn off wondering
-    # check if the NPC should spawn randomly
-    if change_start_position and start_positions.size() > 0:
-        var random_array_position = RNG.randi_range(0, start_positions.size())
-        self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
+	RNG.randomize() # seed the random
+	# check the story beats
+	if npc_story_beats.size() > 0:
+		for n in npc_story_beats.size():
+			if npc_story_beats[n] == Globals.game_stage:
+				change_start_position = false # stop the NPC from spawning randomly
+				will_wonder = false # turn off wondering
+	# check if the NPC should spawn randomly
+	if change_start_position and start_positions.size() > 0:
+		var random_array_position = RNG.randi_range(0, start_positions.size())
+		self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
 
 func _process(_delta):
-    if is_active:
-        if Input.is_action_just_pressed("td_DEBUG"):
-            print("I AM RENOILT")
+	if is_active:
+		if Input.is_action_just_pressed("td_DEBUG"):
+			print("I AM RENOILT")
 
 
 func npc_movement():
-    # npc movement function
-    pass
+	# npc movement function
+	pass

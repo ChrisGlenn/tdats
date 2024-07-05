@@ -13,11 +13,11 @@ var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 
 
 func _ready():
-    # GAME HUD LOADING
-    PL_NAME.text = Globals.player_name
-    PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
-    PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
-    PL_LEVEL.text = str(Globals.player_level)
+	# GAME HUD LOADING
+	PL_NAME.text = Globals.player_name
+	PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
+	PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
+	PL_LEVEL.text = str(Globals.player_level)
 
 func _process(_delta):
-    pass
+	pass

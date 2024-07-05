@@ -28,7 +28,7 @@ var player_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
 var player_inventory_items : Array = [0,0,0,0,0,0] # player's items
 
 # party variables
-var party_members : Array = [] # the party members (string : names)
+var party_size : int = 1 # the size of the party
 # party member (name here)
 var member_one_name : String = ""
 
