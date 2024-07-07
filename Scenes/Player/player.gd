@@ -41,29 +41,6 @@ func player_input():
 	else:
 		player_state = "IDLE" # set player state to IDLE
 	# PLAYER STATES
-	# check for interactable collisions (they will be in the group INTERACT)
-	# play animations depending on state
-	if player_state == "IDLE":
-		if $RayUP.is_colliding():
-			current_collider = $RayUP.get_collider()
-			if current_collider.is_in_group("INTERACT"):
-				current_collider.is_active = true # set as active
-		elif $RayRIGHT.is_colliding():
-			current_collider = $RayRIGHT.get_collider()
-			if current_collider.is_in_group("INTERACT"):
-				current_collider.is_active = true # set as active
-		elif $RayDOWN.is_colliding():
-			current_collider = $RayDOWN.get_collider()
-			if current_collider.is_in_group("INTERACT"):
-				current_collider.is_active = true # set as active
-		elif $RayLEFT.is_colliding():
-			current_collider = $RayLEFT.get_collider()
-			if current_collider.is_in_group("INTERACT"):
-				current_collider.is_active = true # set as active
-		else:
-			if current_collider != null and current_collider.is_in_group("INTERACT"):
-				current_collider.is_active = false
-				current_collider = null
 	# *********
 	# DEBUG
 	# *********
@@ -81,4 +58,6 @@ func player_movement():
 			tween.tween_callback(end_movement)
 
 func end_movement():
+	Globals.player_coords.x = global_position.x
+	Globals.player_coords.y = global_position.y
 	is_moving = false # reset is_moving to false

@@ -30,6 +30,7 @@ func _ready():
 
 func _process(_delta):
 	if is_active:
+		# DEBUG
 		if Input.is_action_just_pressed("td_DEBUG"):
 			print("I AM RENOILT")
 
@@ -37,3 +38,12 @@ func _process(_delta):
 func npc_movement():
 	# npc movement function
 	pass
+
+
+func _on_body_entered(body):
+	if body.is_in_group("PLAYER"):
+		is_active = true # the NPC is now active
+
+func _on_body_exited(body):
+	if body.is_in_group("PLAYER"):
+		is_active = false # the NPC is now false

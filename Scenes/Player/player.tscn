@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ijo"]
-size = Vector2(12, 14)
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_gcv7a")
@@ -96,7 +96,7 @@ animation = &"walkDown"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 9)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_x0ijo")
 
 [node name="RayUP" type="RayCast2D" parent="."]

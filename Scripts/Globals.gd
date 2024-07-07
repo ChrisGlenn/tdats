@@ -26,6 +26,7 @@ var player_inventory_weapons : Array = [0,0,0,0,0,0] # player's weapons
 var player_inventory_armor : Array = [0,0,0,0,0,0] # player's armor
 var player_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
 var player_inventory_items : Array = [0,0,0,0,0,0] # player's items
+var player_coords : Vector2 = Vector2(0,0)
 
 # party variables
 var party_size : int = 1 # the size of the party
