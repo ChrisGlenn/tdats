@@ -33,6 +33,9 @@ var party_size : int = 1 # the size of the party
 # party member (name here)
 var member_one_name : String = ""
 
+# npc variables
+var interacted : Array = [] # list of NPC's that the player has interacted with already
+
 # combat variables
 var current_enemy # the enemy the player is attacking
 var current_enemy_hp : int = 0 # the HP of the current enemy for the HUD
