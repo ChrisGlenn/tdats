@@ -9,6 +9,7 @@ extends Node
 @export var set_story_start : bool = true # defaults to true
 @export var will_wonder : bool = false # if true the NPC will move at random intervals
 @export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
+var cutscene : bool = false # if the NPC is in 'cutscene' mode
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
 var is_moving : bool = false # if the NPC is moving
@@ -32,11 +33,14 @@ func _ready():
 		self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
 
 func _process(_delta):
-	if is_active:
-		# interatct/start dialogue
-		# DEBUG
-		if Input.is_action_just_pressed("td_DEBUG"):
-			print("I AM RENOILT")
+	if cutscene:
+		pass
+	else:
+		if is_active:
+			# interatct/start dialogue
+			# DEBUG
+			if Input.is_action_just_pressed("td_DEBUG"):
+				print("I AM RENOILT")
 
 
 func npc_movement():

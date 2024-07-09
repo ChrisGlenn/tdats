@@ -4,10 +4,10 @@ extends CanvasLayer
 @onready var LOCATION = $LocationLabel
 # main hud showing party members
 @onready var GAME_HUD = $GameHUD
-@onready var PL_NAME = $GameHUD/PlayerName
-@onready var PL_HP = $GameHUD/PlayerHP
-@onready var PL_MP = $GameHUD/PlayerMP
-@onready var PL_LEVEL = $GameHUD/PlayerLevel
+@onready var PL_NAME = $GameHUD/Player/PlayerName
+@onready var PL_HP = $GameHUD/Player/PlayerHP
+@onready var PL_MP = $GameHUD/Player/PlayerMP
+@onready var PL_LEVEL = $GameHUD/Player/PlayerLevel
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 

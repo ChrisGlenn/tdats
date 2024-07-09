@@ -47,6 +47,8 @@ TO-DO LIST(ALPHA):
         [] Load
         [] Status
         [] Quit
+    [] Member Two HUD Display
+    [] Member Three HUD Display
 [] Interactions
     [] Chests
         [] Chests Recording
