@@ -3,7 +3,7 @@ TO-DO LIST(ALPHA):
 -- them will be reset based on what works and what doesn't --
 [] Player
     [x] Grid Movement
-    [] Collision (Raycast2D)
+    [x] Collision (Raycast2D)
     [] Player Animation
     [] Player Animation w/ Weapons and/or Shields
     [] Spells
@@ -34,12 +34,10 @@ TO-DO LIST(ALPHA):
         [] Parry
         [] Pass 
 [] HUD
-    [] Player HP/HP Max
-    [] Player XP/XP Next
-    [] Player Gold
-    [] Player Item MP
-    [] Player/Enemy HP Bar
+    [x] Player HP/HP Max
+    [x] Player XP/XP Next
     [] Main Menu
+    [] Pause Screen
     [] Game Menu
         [] Equipment
         [] Inventory
@@ -53,6 +51,11 @@ TO-DO LIST(ALPHA):
     [] Chests
         [] Chests Recording
 [] NPC Template
+    [] Dialogue
+    [] Quest Give/Complete
+    [] Random Movement
+    [] Set Movement
+    [] Schedule
 [] UI
     [] Fade In/Out
         [] Scene Change

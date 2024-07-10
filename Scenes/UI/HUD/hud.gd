@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var PL_HP = $GameHUD/Player/PlayerHP
 @onready var PL_MP = $GameHUD/Player/PlayerMP
 @onready var PL_LEVEL = $GameHUD/Player/PlayerLevel
+@onready var MEM_TWO = $GameHUD/MemberTwo
+@onready var MEM_THREE = $GameHUD/MemberThree
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 
@@ -18,6 +20,10 @@ func _ready():
 	PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
 	PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
 	PL_LEVEL.text = str(Globals.player_level)
+	# check party size to display member information
+	if Globals.party_size == 1:
+		MEM_TWO.visible = false # hide
+		MEM_THREE.visible = false # hide
 
 func _process(_delta):
 	pass

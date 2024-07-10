@@ -14,6 +14,7 @@ var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
 var is_moving : bool = false # if the NPC is moving
 var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
+var face_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
 var move_speed : float = 0.50 # NPC movement speed
 
 
