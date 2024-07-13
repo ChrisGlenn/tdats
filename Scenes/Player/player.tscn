@@ -11,13 +11,13 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("1_e3thf")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvlog"]
-atlas = ExtResource("1_e3thf")
-region = Rect2(80, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m57fl"]
 atlas = ExtResource("1_e3thf")
 region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvlog"]
+atlas = ExtResource("1_e3thf")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gicp"]
 atlas = ExtResource("1_e3thf")
@@ -50,10 +50,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dvlog")
+"texture": SubResource("AtlasTexture_m57fl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m57fl")
+"texture": SubResource("AtlasTexture_dvlog")
 }],
 "loop": true,
 "name": &"walkLeft",
@@ -86,6 +86,8 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_gcv7a")
 metadata/_edit_group_ = true
 

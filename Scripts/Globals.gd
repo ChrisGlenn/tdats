@@ -1,6 +1,7 @@
 extends Node
 # GLOBAL VARIABLES
 # game variables
+var can_play : bool = true # if the player can move or not
 var game_stage : int = 0 # used to track main story progress
 var current_stage : String = "Paprii City" # the current location of the player
 
@@ -30,8 +31,46 @@ var player_coords : Vector2 = Vector2(0,0)
 
 # party variables
 var party_size : int = 1 # the size of the party
-# party member (name here)
-var member_one_name : String = ""
+# party member two (name here)
+var member_two_name : String = "XxXx"
+var member_two_level : int = 2 # starting level
+var member_two_hp : int = 25 # starting hp
+var member_two_max_hp : int = 25 # starting max hp
+var member_two_mp : int = 5 # starting mp
+var member_two_max_mp : int = 5 # starting max mp
+var member_two_level_xp : Array = []
+var member_two_level_hp : Array = []
+var member_two_level_mp : Array = []
+var member_two_str : int = 10 # player strength (attack strength)
+var member_two_int : int = 10 # player intelligence (spell strength)
+var member_two_agi : int = 10 # player agility (speed)
+var member_two_end : int = 10 # player endurance (hardiness/defense)
+var member_two_chr : int = 10 # player charisma (speech)
+var member_two_lck : int = 10 # player luck (gets lucky)
+var member_two_inventory_weapons : Array = [0,0,0,0,0,0] # player's weapons
+var member_two_inventory_armor : Array = [0,0,0,0,0,0] # player's armor
+var pmember_two_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
+var member_two_inventory_items : Array = [0,0,0,0,0,0] # player's items
+# party member three (name here)
+var member_three_name : String = "XxXx"
+var member_three_level : int = 2 # starting level
+var member_three_hp : int = 25 # starting hp
+var member_three_max_hp : int = 25 # starting max hp
+var member_three_mp : int = 5 # starting mp
+var member_three_max_mp : int = 5 # starting max mp
+var member_three_level_xp : Array = []
+var member_three_level_hp : Array = []
+var member_three_level_mp : Array = []
+var member_three_str : int = 10 # player strength (attack strength)
+var member_three_int : int = 10 # player intelligence (spell strength)
+var member_three_agi : int = 10 # player agility (speed)
+var member_three_end : int = 10 # player endurance (hardiness/defense)
+var member_three_chr : int = 10 # player charisma (speech)
+var member_three_lck : int = 10 # player luck (gets lucky)
+var member_three_inventory_weapons : Array = [0,0,0,0,0,0] # player's weapons
+var member_three_inventory_armor : Array = [0,0,0,0,0,0] # player's armor
+var pmember_three_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
+var member_three_inventory_items : Array = [0,0,0,0,0,0] # player's items
 
 # npc variables
 var interacted : Array = [] # list of NPC's that the player has interacted with already

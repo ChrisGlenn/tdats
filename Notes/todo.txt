@@ -4,7 +4,7 @@ TO-DO LIST(ALPHA):
 [] Player
     [x] Grid Movement
     [x] Collision (Raycast2D)
-    [] Player Animation
+    [x] Player Animation
     [] Player Animation w/ Weapons and/or Shields
     [] Spells
     [] Stats (Equipment Mods)
@@ -27,7 +27,7 @@ TO-DO LIST(ALPHA):
         [] Attack
         [] Item
         [] Parry
-        [] Pass 
+        [] Pass
     [] Team Member One Menu
         [] Attack
         [] Item
@@ -50,6 +50,8 @@ TO-DO LIST(ALPHA):
 [] Interactions
     [] Chests
         [] Chests Recording
+    [x] Teleport Spots
+        [x] Fade/Scene Change Ready
 [] NPC Template
     [] Dialogue
     [] Quest Give/Complete
@@ -57,8 +59,8 @@ TO-DO LIST(ALPHA):
     [] Set Movement
     [] Schedule
 [] UI
-    [] Fade In/Out
-        [] Scene Change
+    [x] Fade In/Out
+        [x] Scene Change
     [] Main Menu
     [] Game Menu/Pause Menu
         [] Equipment Screen
@@ -75,6 +77,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [] Teleport maybe doesn't have player go invisible right away???
 
 
 TO-DO LIST(BETA):

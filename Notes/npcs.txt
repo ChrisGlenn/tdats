@@ -5,6 +5,6 @@ Renoilt = Renoilt (Half/Skodian) M
 Manneth = Sareth M
 Marah = Moriah F
 Sarhom = Sahra F
-Jodusa = Joshua M
+Joda = Joshua M
 
 Annesarai = Jezebel F

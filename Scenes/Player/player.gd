@@ -3,6 +3,7 @@ extends CharacterBody2D
 # player input/movement are mostly controlled here with stats, combat, ect being handled in another script
 @onready var SPRITE = $AnimatedSprite2D
 const TILE_SIZE : int = 16 # movement tile size
+var player_animations : Array = []
 var player_speed : float = 0.26 # movement speed
 var player_state : String = "IDLE" # begins at 'IDLE'
 var is_moving : bool = false # is moving check
@@ -21,26 +22,52 @@ func _physics_process(_delta):
 
 func player_input():
 	input_direction = Vector2.ZERO
-	if Input.is_action_pressed("td_UP"):
-		# check the raycast collision and do a 'slide' if the player is at a corner
-		if !$RayUP.is_colliding():
-			player_state = "UP"
-			input_direction = Vector2.UP # change direction to UP
-	elif Input.is_action_pressed("td_RIGHT"):
-		# check the raycast collision and do a 'slide' if the player is at a corner
-		if !$RayRIGHT.is_colliding():
-			input_direction = Vector2.RIGHT # change direction to RIGHT
-	elif Input.is_action_pressed("td_DOWN"):
-		# check the raycast collision and do a 'slide' if the player is at a corner
-		if !$RayDOWN.is_colliding():
-			input_direction = Vector2.DOWN # change direction to DOWN
-	elif Input.is_action_pressed("td_LEFT"):
-		# check the raycast collision and do a 'slide' if the player is at a corner
-		if !$RayLEFT.is_colliding():
-			input_direction = Vector2.LEFT # change direction to LEFT
+	if Globals.can_play:
+		if Input.is_action_pressed("td_UP"):
+			# check the raycast collision and do a 'slide' if the player is at a corner
+			if !$RayUP.is_colliding():
+				input_direction = Vector2.UP # change direction to UP
+				if !is_moving: player_state = "UP"
+			else:
+				if !is_moving: player_state = "IDLE" # stop the animation
+		elif Input.is_action_pressed("td_RIGHT"):
+			# check the raycast collision and do a 'slide' if the player is at a corner
+			if !$RayRIGHT.is_colliding():
+				input_direction = Vector2.RIGHT # change direction to RIGHT
+				if !is_moving: player_state = "RIGHT"
+			else:
+				if !is_moving: player_state = "IDLE" # stop the animation
+		elif Input.is_action_pressed("td_DOWN"):
+			# check the raycast collision and do a 'slide' if the player is at a corner
+			if !$RayDOWN.is_colliding():
+				input_direction = Vector2.DOWN # change direction to DOWN
+				if !is_moving: player_state = "DOWN"
+			else:
+				if !is_moving: player_state = "IDLE" # stop the animation
+		elif Input.is_action_pressed("td_LEFT"):
+			# check the raycast collision and do a 'slide' if the player is at a corner
+			if !$RayLEFT.is_colliding():
+				input_direction = Vector2.LEFT # change direction to LEFT
+				if !is_moving: player_state = "LEFT"
+			else:
+				if !is_moving: player_state = "IDLE" # stop the animation
+		else:
+			player_state = "IDLE" # set player state to IDLE
 	else:
-		player_state = "IDLE" # set player state to IDLE
+		player_state = "IDLE" # set player to idle
+		input_direction = Vector2.ZERO
 	# PLAYER STATES
+	if player_state == "UP":
+		SPRITE.play("walkUp")
+	elif player_state == "RIGHT":
+		SPRITE.play("walkRight")
+	elif player_state == "DOWN":
+		SPRITE.play("walkDown")
+	elif player_state == "LEFT":
+		SPRITE.play("walkLeft")
+	elif player_state == "IDLE":
+		SPRITE.stop()
+		SPRITE.frame = 1
 	# *********
 	# DEBUG
 	# *********
