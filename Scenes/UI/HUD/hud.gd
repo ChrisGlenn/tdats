@@ -9,7 +9,15 @@ extends CanvasLayer
 @onready var PL_MP = $GameHUD/Player/PlayerMP
 @onready var PL_LEVEL = $GameHUD/Player/PlayerLevel
 @onready var MEM_TWO = $GameHUD/MemberTwo
+@onready var MEM_TWO_NAME = $GameHUD/MemberTwo/MemTwoName
+@onready var MEM_TWO_HP = $GameHUD/MemberTwo/MemTwoHP
+@onready var MEM_TWO_MP = $GameHUD/MemberTwo/MemTwoMP
+@onready var MEM_TWO_LEVEL = $GameHUD/MemberTwo/MemTwoLevel
 @onready var MEM_THREE = $GameHUD/MemberThree
+@onready var MEM_THREE_NAME = $GameHUD/MemberThree/MemThreeName
+@onready var MEM_THREE_HP = $GameHUD/MemberThree/MemThreeHP
+@onready var MEM_THREE_MP = $GameHUD/MemberThree/MemThreeMP
+@onready var MEM_THREE_LEVEL = $GameHUD/MemberThree/MemThreeLevel
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 

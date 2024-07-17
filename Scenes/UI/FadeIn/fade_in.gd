@@ -19,5 +19,6 @@ func _process(delta):
 		else:
 			$AnimationPlayer.play("fade_in") # start the animation
 
+
 func _on_animation_player_animation_finished(_anim_name):
 	if give_control: Globals.can_play = true # let the player resume playing
