@@ -4,3 +4,4 @@
 
 [node name="SceneSystem" type="Node2D"]
 script = ExtResource("1_4onrm")
+cutscene_id = 0

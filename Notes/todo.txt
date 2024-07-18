@@ -9,6 +9,7 @@ TO-DO LIST(ALPHA):
     [] Spells
     [] Stats (Equipment Mods)
     [] Leveling Up
+    [] Scene Starting Position Setup
 [] Combat
     [] Combat System (the actual combat system for the game...)
     [] Initial Contact Message
@@ -77,7 +78,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
-    [] Teleport maybe doesn't have player go invisible right away???
+    [x] Teleport maybe doesn't have player go invisible right away???
 
 
 TO-DO LIST(BETA):

@@ -8,6 +8,7 @@ var player_speed : float = 0.26 # movement speed
 var player_state : String = "IDLE" # begins at 'IDLE'
 var is_moving : bool = false # is moving check
 var can_interact : bool = false # is true if ray is colliding w/ object or NPC
+var scene_change : bool = false # if this is true then the player will stop movement and disappear after
 var input_direction # movement vector
 var current_collider # any interactable the player rays may be colliding with
 
@@ -89,6 +90,9 @@ func player_movement():
 			tween.tween_callback(end_movement)
 
 func end_movement():
-	Globals.player_coords.x = global_position.x
-	Globals.player_coords.y = global_position.y
-	is_moving = false # reset is_moving to false
+	if !scene_change:
+		Globals.player_coords.x = global_position.x
+		Globals.player_coords.y = global_position.y
+		is_moving = false # reset is_moving to false
+	else:
+		SPRITE.visible = false # hide self

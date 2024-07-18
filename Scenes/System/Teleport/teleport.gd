@@ -8,8 +8,8 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):
-		Globals.can_play = false
-		body.visible = false # hide the player
+		Globals.can_play = false # stops further movement
+		body.scene_change = true # changes variable on player
 		var fadeout = FADEOUT.instantiate()
 		fadeout.level_to_load = level_to_load # set the load level
 		get_parent().add_child(fadeout)
