@@ -11,5 +11,6 @@ func _on_body_entered(body):
 		Globals.can_play = false # stops further movement
 		body.scene_change = true # changes variable on player
 		var fadeout = FADEOUT.instantiate()
+		fadeout.countdown = true # set the countdown to true
 		fadeout.level_to_load = level_to_load # set the load level
 		get_parent().add_child(fadeout)

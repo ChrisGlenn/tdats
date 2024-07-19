@@ -30,32 +30,36 @@ func player_input():
 				input_direction = Vector2.UP # change direction to UP
 				if !is_moving: player_state = "UP"
 			else:
-				SPRITE.animation = "walkUp"
-				if !is_moving: player_state = "IDLE" # stop the animation
+				if !is_moving: 
+					SPRITE.animation = "walkUp"
+					player_state = "IDLE" # stop the animation
 		elif Input.is_action_pressed("td_RIGHT"):
 			# check the raycast collision and do a 'slide' if the player is at a corner
 			if !$RayRIGHT.is_colliding():
 				input_direction = Vector2.RIGHT # change direction to RIGHT
 				if !is_moving: player_state = "RIGHT"
 			else:
-				SPRITE.animation = "walkRight"
-				if !is_moving: player_state = "IDLE" # stop the animation
+				if !is_moving: 
+					SPRITE.animation = "walkRight"
+					player_state = "IDLE" # stop the animation
 		elif Input.is_action_pressed("td_DOWN"):
 			# check the raycast collision and do a 'slide' if the player is at a corner
 			if !$RayDOWN.is_colliding():
 				input_direction = Vector2.DOWN # change direction to DOWN
 				if !is_moving: player_state = "DOWN"
 			else:
-				SPRITE.animation = "walkDown"
-				if !is_moving: player_state = "IDLE" # stop the animation
+				if !is_moving: 
+					SPRITE.animation = "walkDown"
+					player_state = "IDLE" # stop the animation
 		elif Input.is_action_pressed("td_LEFT"):
 			# check the raycast collision and do a 'slide' if the player is at a corner
 			if !$RayLEFT.is_colliding():
 				input_direction = Vector2.LEFT # change direction to LEFT
 				if !is_moving: player_state = "LEFT"
 			else:
-				SPRITE.animation = "walkLeft"
-				if !is_moving: player_state = "IDLE" # stop the animation
+				if !is_moving: 
+					SPRITE.animation = "walkLeft"
+					player_state = "IDLE" # stop the animation
 		else:
 			player_state = "IDLE" # set player state to IDLE
 	else:

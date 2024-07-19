@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var LOCATION = $LocationLabel
 # main hud showing party members
 @onready var GAME_HUD = $GameHUD
+@onready var LEVEL = $LocationLabel
 @onready var PL_NAME = $GameHUD/Player/PlayerName
 @onready var PL_HP = $GameHUD/Player/PlayerHP
 @onready var PL_MP = $GameHUD/Player/PlayerMP
@@ -24,6 +25,7 @@ var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 
 func _ready():
 	# GAME HUD LOADING
+	LEVEL.text = Globals.current_stage
 	PL_NAME.text = Globals.player_name
 	PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
 	PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
@@ -34,4 +36,4 @@ func _ready():
 		MEM_THREE.visible = false # hide
 
 func _process(_delta):
-	pass
+	if LEVEL.text != Globals.current_stage: LEVEL.text = Globals.current_stage # DEBUG FOR TESTING

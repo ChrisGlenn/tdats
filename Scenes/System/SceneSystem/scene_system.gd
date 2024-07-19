@@ -16,4 +16,4 @@ func _ready():
 		cutscene_data = JSON.parse_string(file_data) # parse the string file_data into a new dictionary
 	else:
 		# if there is no cutscene file path set then send out an error
-		print("ERROR: NO FILE PATH SET FOR CUTSCENE")
+		print("ERROR: NO FILE PATH SET FOR CUTSCENE! STORY BEAT: ", story_beat)
