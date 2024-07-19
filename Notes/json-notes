@@ -1,0 +1,7 @@
+var file_path = "res://JSON/Cutscenes/opening_cs.json"
+var json_from_file = FileAccess.get_file_as_string(file_path)
+var json_as_dict = JSON.parse_string(json_from_file)
+if json_as_dict: 
+	if cutscene_step < json_as_dict.size():
+		print(json_as_dict.values()[cutscene_step]["name"])
+		cutscene_step += 1
