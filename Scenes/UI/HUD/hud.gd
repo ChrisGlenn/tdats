@@ -19,8 +19,16 @@ extends CanvasLayer
 @onready var MEM_THREE_HP = $GameHUD/MemberThree/MemThreeHP
 @onready var MEM_THREE_MP = $GameHUD/MemberThree/MemThreeMP
 @onready var MEM_THREE_LEVEL = $GameHUD/MemberThree/MemThreeLevel
+@onready var DIALOGUE_HUD = $Dialogue
+@onready var DIALOGUE_NAME = $Dialogue/DiagNameLabel
+@onready var DIALOGUE_TEXT = $Dialogue/DiagText
+# DIALOGUE CHOICE HUD
+# YES/NO
+# CURSOR
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
+# dialogue variables
+var dialogue_data : Dictionary = {} # holds the dialogue data
 
 
 func _ready():
@@ -36,4 +44,26 @@ func _ready():
 		MEM_THREE.visible = false # hide
 
 func _process(_delta):
-	if LEVEL.text != Globals.current_stage: LEVEL.text = Globals.current_stage # DEBUG FOR TESTING
+	update_hud() # keep the HUD up to date with what it needs to display
+
+
+func update_hud():
+	if LEVEL.text != Globals.current_stage: LEVEL.text = Globals.current_Stage # update the current stage
+	if HUD_Mode == "GAME":
+		# this is the main hud for the game
+		# this shows the player/party stats
+		GAME_HUD.visible = true # show the GAME HUD
+		DIALOGUE_HUD.visible = false # hide the dialogue HUD
+		# player
+		PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
+		PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
+		PL_LEVEL.text = str(Globals.player_level)
+		# member two
+		# member three
+	elif HUD_Mode == "DIALOGUE":
+		# the dialogue/message text for the game is displayed here
+		GAME_HUD.visible = false # hide the game HUD
+		DIALOGUE_HUD.visible = true # show the dialogue HUD
+	elif HUD_Mode == "MAIN_MENU":
+		# the main menu only happens at the beginning of the game
+		pass

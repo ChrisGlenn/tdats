@@ -3,7 +3,7 @@ extends Node
 # game variables
 var can_play : bool = true # if the player can move or not
 var game_stage : int = 0 # used to track main story progress
-var current_stage : String = "Paprii City" # the current location of the player
+var current_stage : String = "~ Paprii City ~" # the current location of the player
 
 # player variables
 var player_name : String = "Adan" # player's name

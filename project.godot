@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Hud="*res://Scenes/UI/HUD/hud.tscn"
+HUD="*res://Scenes/UI/HUD/hud.tscn"
 Globals="*res://Scripts/Globals.gd"
 
 [display]
@@ -26,7 +26,6 @@ Globals="*res://Scripts/Globals.gd"
 window/size/viewport_width=320
 window/size/viewport_height=240
 window/size/mode=2
-window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
