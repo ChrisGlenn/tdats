@@ -22,6 +22,9 @@ extends CanvasLayer
 @onready var DIALOGUE_HUD = $Dialogue
 @onready var DIALOGUE_NAME = $Dialogue/DiagNameLabel
 @onready var DIALOGUE_TEXT = $Dialogue/DiagText
+@onready var DIALOGUE_CHOICE = $DialogueChoice
+@onready var DIALOGUE_YES = $DialogueChoice/Yes_One
+@onready var DIALOGUE_NO = $DialogueChoice/No_Two
 # DIALOGUE CHOICE HUD
 # YES/NO
 # CURSOR
@@ -29,6 +32,9 @@ extends CanvasLayer
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 # dialogue variables
 var dialogue_data : Dictionary = {} # holds the dialogue data
+var dialogue_choice_data : Dictionary = {} # holds the dialogue choice data
+var diag_show_choice : bool = false # if true the dialogue choice screen will show
+var diag_choice_pos : int = 0 # 0 is left/yes 1 is right/no
 
 
 func _ready():
