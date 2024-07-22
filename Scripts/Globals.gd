@@ -82,3 +82,9 @@ var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
 
 # system variables
 var timer_ctrl : int = 100 # timer control
+
+
+# DEBUGGING
+var debug_dialogue : Dictionary = {
+    "001" : {"name": "DEBUGGER","dialogue": "This is some test dialogue...","branch": false,"choice_a": "","choice_b": ""}
+}
