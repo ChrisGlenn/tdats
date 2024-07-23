@@ -24,3 +24,4 @@ position = Vector2(64, 68)
 
 [node name="Renoilt" parent="NPCs" instance=ExtResource("3_vcerb")]
 position = Vector2(144, 36)
+npc_name = "Renoilt"

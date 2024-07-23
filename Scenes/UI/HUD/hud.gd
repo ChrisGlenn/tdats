@@ -82,7 +82,7 @@ func update_hud(clock):
 			else:
 				# the player has come to the end of the dialogue if they try to advance
 				# the dialogue will close and the HUD will revert back to GAME
-				pass
+				hud_switch("GAME")
 		else:
 			DIALOGUE_HUD.visible = true # show the dialogue HUD
 			DIALOGUE_CHOICE.visible = false # hide the dialogue choice
@@ -90,9 +90,11 @@ func update_hud(clock):
 		# the main menu only happens at the beginning of the game
 		pass
 
-func hud_switch():
+func hud_switch(hud_mode):
 	# this will make necessary updates for when switching HUD_Mode(s)
-	pass
+	dialogue_data.clear() # clear the dialogue data
+	dialogue_choice_data.clear() # clear the dialogue choice data
+	HUD_Mode = hud_mode # change the HUD mode to the requested mode
 
 func type_dialogue(clock):
 	# types out the dialogue

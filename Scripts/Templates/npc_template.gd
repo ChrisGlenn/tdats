@@ -9,13 +9,17 @@ extends Node
 @export var set_story_start : bool = true # defaults to true
 @export var will_wonder : bool = false # if true the NPC will move at random intervals
 @export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
+@export var npc_dialogue_path : String = "" # path to dialogue JSON file
 var cutscene : bool = false # if the NPC is in 'cutscene' mode
+var current_beat : int = -4 # the current story beat
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
 var is_moving : bool = false # if the NPC is moving
 var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
 var face_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
 var move_speed : float = 0.50 # NPC movement speed
+var dialogue_data : Dictionary = {} # holds the dialogue data
+var talked_to : bool = false # if the NPC has been talked to already this story beat
 
 
 func _ready():
@@ -24,6 +28,7 @@ func _ready():
 	if npc_story_beats.size() > 0:
 		for n in npc_story_beats.size():
 			if npc_story_beats[n] == Globals.game_stage:
+				current_beat = npc_story_beats[n] # set the NPC's current beat
 				self.position = Vector2(story_start_positions[Globals.game_stage].x, story_start_positions[Globals.game_stage].y) # set story start position
 				change_start_position = false # stop the NPC from spawning randomly
 				will_wonder = false # turn off wondering
@@ -32,6 +37,22 @@ func _ready():
 	if change_start_position and start_positions.size() > 0:
 		var random_array_position = RNG.randi_range(0, start_positions.size())
 		self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
+	# check if this NPC has been talked to already
+	if Globals.interacted.size() > 0:
+		# iterate through the array and see if the NPC name is present
+		for n in Globals.interacted.size():
+			if Globals.interacted[n] == npc_name:
+				talked_to = true # set that this npc has been talked to
+	# parse the dialogue data
+	if npc_dialogue_path.length() > 0:
+		# there is a file path set
+		var file_data = FileAccess.get_file_as_string(npc_dialogue_path) # get data from JSON file
+		dialogue_data = JSON.parse_string(file_data) # set the json data as dictionary
+		# iterate through dialogue_data and remove unecessary data that does not pertain to the current beat
+		for n in dialogue_data.size():
+			pass
+	else:
+		print("WARNING: No dialogue path set for ", npc_name)
 
 func _process(_delta):
 	if cutscene:

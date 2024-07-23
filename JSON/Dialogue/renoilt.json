@@ -1,0 +1,4 @@
+{
+    "001" : {"name": "Renoilt","dialogue": "Please, go see the priest.","story": 0,"branch": false,"choice_a": "","choice_b": "","talked_to": false},
+    "002" : {"name": "Renoilt","dialogue": "Hey, you don't want to see this.","story": 1,"branch": false,"choice_a": "","choice_b": "","talked_to": false}
+}

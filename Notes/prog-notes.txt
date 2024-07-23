@@ -1,3 +1,5 @@
+@export_multiline var messages: Array[String]
+
 extends CharacterBody2D
 # PLAYER SCRIPT
 # player input/movement are mostly controlled here with stats, combat, ect being handled in another script
