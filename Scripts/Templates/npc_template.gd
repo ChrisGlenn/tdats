@@ -10,6 +10,7 @@ extends Node
 @export var will_wonder : bool = false # if true the NPC will move at random intervals
 @export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
 @export var npc_dialogue_path : String = "" # path to dialogue JSON file
+@export_multiline var dialogue_test : Dictionary
 var cutscene : bool = false # if the NPC is in 'cutscene' mode
 var current_beat : int = -4 # the current story beat
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
