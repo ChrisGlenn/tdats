@@ -1,94 +1,83 @@
 @export_multiline var messages: Array[String]
 
-extends CharacterBody2D
-# PLAYER SCRIPT
-# player input/movement are mostly controlled here with stats, combat, ect being handled in another script
-@onready var RAY = $RayCast2D
-@onready var SPRITE = $AnimatedSprite2D
-const TILE_SIZE : int = 8 # movement tile size
-var player_speed : float = 60.0 # movement speed
-var is_moving : bool = false # is moving check
-var move_direction : int = -4 # 0 for up clockwise to 3 or left
-var player_position = Vector2.ZERO
-var target_position = Vector2.ZERO
+extends Node
+# NPC TEMPLATE
+# the base template for each NPC in the game
+@onready var RNG = RandomNumberGenerator.new() # random number generator
+@export var npc_name : String = "NPC" # name of the NPC
+@export var start_positions : Array = [] # the different start positions
+@export var change_start_position : bool = false # if the NPC should start at a random position pulled from start_positions
+@export var story_start_positions : Array = [] # start positions for story beats
+@export var set_story_start : bool = true # defaults to true
+@export var will_wonder : bool = false # if true the NPC will move at random intervals
+@export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
+@export var npc_dialogue_path : String = "" # path to dialogue JSON file
+@export_multiline var dialogue_test : Dictionary
+var cutscene : bool = false # if the NPC is in 'cutscene' mode
+var current_beat : int = -4 # the current story beat
+var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
+var move_timer : float = 100.0 # move countdown timer
+var is_moving : bool = false # if the NPC is moving
+var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
+var face_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
+var move_speed : float = 0.50 # NPC movement speed
+var dialogue_data : Dictionary = {} # holds the dialogue data
+var talked_to : bool = false # if the NPC has been talked to already this story beat
 
 
 func _ready():
-    player_position = position # set starting position
+	RNG.randomize() # seed the random
+	# check the story beats
+	if npc_story_beats.size() > 0:
+		for n in npc_story_beats.size():
+			if npc_story_beats[n] == Globals.game_stage:
+				current_beat = npc_story_beats[n] # set the NPC's current beat
+				self.position = Vector2(story_start_positions[Globals.game_stage].x, story_start_positions[Globals.game_stage].y) # set story start position
+				change_start_position = false # stop the NPC from spawning randomly
+				will_wonder = false # turn off wondering
+				break # stop the loop
+	# check if the NPC should spawn randomly
+	if change_start_position and start_positions.size() > 0:
+		var random_array_position = RNG.randi_range(0, start_positions.size())
+		self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
+	# check if this NPC has been talked to already
+	if Globals.interacted.size() > 0:
+		# iterate through the array and see if the NPC name is present
+		for n in Globals.interacted.size():
+			if Globals.interacted[n] == npc_name:
+				talked_to = true # set that this npc has been talked to
+	# parse the dialogue data
+	if npc_dialogue_path.length() > 0:
+		# there is a file path set
+		var file_data = FileAccess.get_file_as_string(npc_dialogue_path) # get data from JSON file
+		dialogue_data = JSON.parse_string(file_data) # set the json data as dictionary
+		# iterate through dialogue_data and remove unecessary data that does not pertain to the current beat
+		for n in dialogue_data.size():
+			pass
+	else:
+		print("WARNING: No dialogue path set for ", npc_name)
 
-func _physics_process(delta):
-    player_movement(delta) # player movement function
+func _process(_delta):
+	if cutscene:
+		pass
+	else:
+		if is_active:
+			# interatct/start dialogue
+			# DEBUG
+			if Input.is_action_just_pressed("td_DEBUG"):
+				print("I AM RENOILT")
 
 
-func player_movement(clock):
-    if !is_moving:
-        # if the player is NOT moving, check for inputs
-        if Input.is_action_pressed("td_UP"):
-            SPRITE.play("walkUp")
-            target_position.y = player_position.y - TILE_SIZE # set target position
-            move_direction = 0 # set move direction to UP
-            SPRITE.flip_h = false # horizontal flip
-            is_moving = true # player is moving!
-        elif Input.is_action_pressed("td_RIGHT"):
-            SPRITE.play("walkSide")
-            target_position.x = player_position.x + TILE_SIZE # set target position
-            move_direction = 1 # set move direction to RIGHT
-            SPRITE.flip_h = true # horizontal flip
-            is_moving = true # player is moving!
-        elif Input.is_action_pressed("td_DOWN"):
-            SPRITE.play("walkDown")
-            target_position.y = player_position.y + TILE_SIZE # set target position
-            move_direction = 2 # set move direction to DOWN
-            SPRITE.flip_h = false # horizontal flip
-            is_moving = true # player is moving!
-        elif Input.is_action_pressed("td_LEFT"):
-            target_position.x = player_position.x - TILE_SIZE # set target position
-            move_direction = 3 # set move direction to LEFT
-            SPRITE.flip_h = false # horizontal flip
-            is_moving = true # player is moving!
-        else:
-            if move_direction != -4: move_direction = -4 # reset move direction
-    else:
-        # check the move direction and move
-        if move_direction == 0:
-            # moving up
-            if position.y > target_position.y:
-                position.y -= player_speed * clock # move the player
-            else:
-                if !Input.is_action_pressed("td_UP"):
-                    position.y = target_position.y # set the player to this target
-                    SPRITE.stop()
-                    player_position = position
-                    move_direction = -4
-                    is_moving = false
-                else:
-                    target_position.y -= TILE_SIZE # reset position
-        elif move_direction == 1:
-            # moving right
-            if position.x < target_position.x:
-                position.x += player_speed * clock # move the player
-            else:
-                if !Input.is_action_pressed("td_RIGHT"):
-                    position.x = target_position.x # set the player to this target
-                    SPRITE.stop()
-                    player_position = position
-                    move_direction = -4
-                    is_moving = false
-                else:
-                    target_position.x += TILE_SIZE # reset position
-        elif move_direction == 2:
-            # moving down
-            if position.y < target_position.y:
-                position.y += player_speed * clock # move the player
-            else:
-                if !Input.is_action_pressed("td_DOWN"):
-                    position.y = target_position.y # set the player to this target
-                    SPRITE.stop()
-                    player_position = position
-                    move_direction = -4
-                    is_moving = false
-                else:
-                    target_position.y += TILE_SIZE # reset position
-    # DEBUG
-    if Input.is_action_just_pressed("td_END"):
-        get_tree().quit() # quit the game
+func npc_movement():
+	# npc movement function
+	pass
+
+
+func _on_body_entered(body):
+	if body.is_in_group("PLAYER"):
+		is_active = true # the NPC is now active
+
+func _on_body_exited(body):
+	if body.is_in_group("PLAYER"):
+		is_active = false # the NPC is now false
+

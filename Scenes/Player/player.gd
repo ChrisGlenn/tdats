@@ -14,7 +14,7 @@ var current_collider # any interactable the player rays may be colliding with
 
 
 func _ready():
-	pass
+	SPRITE.play("walkDown") # start the animation
 
 func _physics_process(_delta):
 	player_input() # player input function
@@ -75,8 +75,7 @@ func player_input():
 	elif player_state == "LEFT":
 		SPRITE.play("walkLeft")
 	elif player_state == "IDLE":
-		SPRITE.stop()
-		SPRITE.frame = 1
+		pass
 	# *********
 	# DEBUG
 	# *********

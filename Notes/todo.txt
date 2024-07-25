@@ -78,6 +78,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [x] Make character animations always play ala Dragon Warrior 1
     [x] Teleport maybe doesn't have player go invisible right away???
 
 

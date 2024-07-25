@@ -3,67 +3,28 @@ extends Node
 # the base template for each NPC in the game
 @onready var RNG = RandomNumberGenerator.new() # random number generator
 @export var npc_name : String = "NPC" # name of the NPC
-@export var start_positions : Array = [] # the different start positions
+@export var shop_keeper : bool = false # if this NPC is a shopkeeper
+@export var shop_items : Dictionary = {} # list of items the shopkeeper sells
+@export var quest_giver : bool = false # if this NPC gives any quests
+@export var related_quests : Dictionary = {} # list of quests this NPC gives out
+@export var dialogue_branch : bool = false # if true then this NPC has 'branching' dialogue
+@export_multiline var dialogue_test : Dictionary # the dialogue data
 @export var change_start_position : bool = false # if the NPC should start at a random position pulled from start_positions
-@export var story_start_positions : Array = [] # start positions for story beats
-@export var set_story_start : bool = true # defaults to true
+@export var start_positions : Array = [] # the different start positions
 @export var will_wonder : bool = false # if true the NPC will move at random intervals
-@export var npc_story_beats : Array = [] # GLOBAL game_stage that relate to the NPC
-@export var npc_dialogue_path : String = "" # path to dialogue JSON file
-@export_multiline var dialogue_test : Dictionary
-var cutscene : bool = false # if the NPC is in 'cutscene' mode
-var current_beat : int = -4 # the current story beat
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
 var is_moving : bool = false # if the NPC is moving
 var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
 var face_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
 var move_speed : float = 0.50 # NPC movement speed
+var move_to : Vector2 = Vector2.ZERO
 var dialogue_data : Dictionary = {} # holds the dialogue data
 var talked_to : bool = false # if the NPC has been talked to already this story beat
 
 
 func _ready():
 	RNG.randomize() # seed the random
-	# check the story beats
-	if npc_story_beats.size() > 0:
-		for n in npc_story_beats.size():
-			if npc_story_beats[n] == Globals.game_stage:
-				current_beat = npc_story_beats[n] # set the NPC's current beat
-				self.position = Vector2(story_start_positions[Globals.game_stage].x, story_start_positions[Globals.game_stage].y) # set story start position
-				change_start_position = false # stop the NPC from spawning randomly
-				will_wonder = false # turn off wondering
-				break # stop the loop
-	# check if the NPC should spawn randomly
-	if change_start_position and start_positions.size() > 0:
-		var random_array_position = RNG.randi_range(0, start_positions.size())
-		self.position = Vector2(start_positions[random_array_position].x, start_positions[random_array_position].y)
-	# check if this NPC has been talked to already
-	if Globals.interacted.size() > 0:
-		# iterate through the array and see if the NPC name is present
-		for n in Globals.interacted.size():
-			if Globals.interacted[n] == npc_name:
-				talked_to = true # set that this npc has been talked to
-	# parse the dialogue data
-	if npc_dialogue_path.length() > 0:
-		# there is a file path set
-		var file_data = FileAccess.get_file_as_string(npc_dialogue_path) # get data from JSON file
-		dialogue_data = JSON.parse_string(file_data) # set the json data as dictionary
-		# iterate through dialogue_data and remove unecessary data that does not pertain to the current beat
-		for n in dialogue_data.size():
-			pass
-	else:
-		print("WARNING: No dialogue path set for ", npc_name)
-
-func _process(_delta):
-	if cutscene:
-		pass
-	else:
-		if is_active:
-			# interatct/start dialogue
-			# DEBUG
-			if Input.is_action_just_pressed("td_DEBUG"):
-				print("I AM RENOILT")
 
 
 func npc_movement():
@@ -73,8 +34,8 @@ func npc_movement():
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):
-		is_active = true # the NPC is now active
+		is_active = true # NPC is 'active'
 
 func _on_body_exited(body):
 	if body.is_in_group("PLAYER"):
-		is_active = false # the NPC is now false
+		is_active = false # NPC is no longer 'active'

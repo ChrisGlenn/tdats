@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-07-24T18:54:51.226Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="MfF-gCZo1mSBJCJ1XUoS" version="24.6.4" type="device">
+<mxfile host="Electron" modified="2024-07-25T05:17:49.197Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="7SrPFyPKt6KMXshn0OFL" version="24.6.4" type="device">
   <diagram name="Page-1" id="6r_xxN00tEhLJsA6vU1w">
     <mxGraphModel dx="1200" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1400" math="0" shadow="0">
       <root>
@@ -38,20 +38,74 @@
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-1" target="uBrZQJT4jN_2zQBhVWnl-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-1" target="uBrZQJT4jN_2zQBhVWnl-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-1" value="Quest Giver?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="280" y="160" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-2" target="uBrZQJT4jN_2zQBhVWnl-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-2" target="uBrZQJT4jN_2zQBhVWnl-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-2" value="Cutscene" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="160" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="uBrZQJT4jN_2zQBhVWnl-3" value="Attributes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-3" target="uBrZQJT4jN_2zQBhVWnl-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-3" value="Dialogue" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="680" y="160" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-8" target="uBrZQJT4jN_2zQBhVWnl-16">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-8" value="Yes?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="120" y="240" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-16" target="uBrZQJT4jN_2zQBhVWnl-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-16" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Add items to array in editor and have the shop interface preloaded.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-18" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Greeting/buy/sell&lt;/font&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;/cancel dialogue&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-20" target="uBrZQJT4jN_2zQBhVWnl-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-20" value="Yes?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-22" target="uBrZQJT4jN_2zQBhVWnl-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-22" value="Set a cooresponding side/main quest ID" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-24" value="Yes?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="240" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-25" target="uBrZQJT4jN_2zQBhVWnl-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-25" target="uBrZQJT4jN_2zQBhVWnl-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-25" value="Branch?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-28" value="Set dialogue for intro/middle/completed quest" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-30" value="Yes?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="320" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-31" value="No?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="320" width="40" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
