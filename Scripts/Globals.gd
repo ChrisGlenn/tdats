@@ -4,6 +4,7 @@ extends Node
 var can_play : bool = true # if the player can move or not
 var game_stage : int = 0 # used to track main story progress
 var current_stage : String = "~ Paprii City ~" # the current location of the player
+var in_dialogue : bool = false # will be true if dialogue is happening
 
 # player variables
 var player_name : String = "Adan" # player's name
