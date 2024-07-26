@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpslhfi2tddjj"]
+[gd_scene load_steps=7 format=3 uid="uid://cpslhfi2tddjj"]
 
 [ext_resource type="PackedScene" uid="uid://bb4cclfsl8a86" path="res://Scenes/UI/FadeIn/fade_in.tscn" id="1_2py8j"]
 [ext_resource type="PackedScene" uid="uid://cgnmb3orfwrxr" path="res://Scenes/Tilemap/tile_map.tscn" id="1_wds5g"]
 [ext_resource type="Script" path="res://Scripts/Templates/interior_template.gd" id="1_xsiqc"]
 [ext_resource type="PackedScene" uid="uid://bmhqa14sdoxhk" path="res://Scenes/Player/player.tscn" id="2_43dwc"]
 [ext_resource type="PackedScene" uid="uid://c7yl57j3cdg88" path="res://Scenes/NPCs/Renoilt/renoilt.tscn" id="3_vcerb"]
+[ext_resource type="PackedScene" uid="uid://ddtypry26fwnt" path="res://Scenes/System/SceneSystem/scene_system.tscn" id="6_knf3w"]
 
 [node name="Renoilt_Home" type="Node2D"]
 position = Vector2(0, 1)
@@ -12,6 +13,8 @@ script = ExtResource("1_xsiqc")
 stage_name = "~ Renoilt's Home ~"
 
 [node name="FadeIn" parent="." instance=ExtResource("1_2py8j")]
+fade_in_beats = [0]
+fade_timer_amount = 100
 
 [node name="TileMap" parent="." instance=ExtResource("1_wds5g")]
 position = Vector2(0, 4)
@@ -25,3 +28,7 @@ position = Vector2(64, 68)
 [node name="Renoilt" parent="NPCs" instance=ExtResource("3_vcerb")]
 position = Vector2(144, 36)
 npc_name = "Renoilt"
+
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="SceneSystem" parent="." instance=ExtResource("6_knf3w")]

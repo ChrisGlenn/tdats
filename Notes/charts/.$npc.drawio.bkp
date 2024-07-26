@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-07-25T05:17:49.197Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="7SrPFyPKt6KMXshn0OFL" version="24.6.4" type="device">
+<mxfile host="Electron" modified="2024-07-25T05:20:52.980Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="SRuXarpwAVC7xOTJXOqj" version="24.6.4" type="device">
   <diagram name="Page-1" id="6r_xxN00tEhLJsA6vU1w">
     <mxGraphModel dx="1200" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1400" math="0" shadow="0">
       <root>
@@ -101,11 +101,23 @@
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-28" value="Set dialogue for intro/middle/completed quest" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="280" y="440" width="120" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-30" target="uBrZQJT4jN_2zQBhVWnl-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-30" value="Yes?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="660" y="320" width="40" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uBrZQJT4jN_2zQBhVWnl-31" target="uBrZQJT4jN_2zQBhVWnl-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="uBrZQJT4jN_2zQBhVWnl-31" value="No?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="780" y="320" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-34" value="Just set the dialogue in the array for the NPC to randomly pick" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="400" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uBrZQJT4jN_2zQBhVWnl-36" value="Set the initial dialogue the choices and the responses also the &#39;talked to&#39; response which will be recorded" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="400" width="80" height="200" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
