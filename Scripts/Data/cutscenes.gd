@@ -15,9 +15,9 @@ func set_cutscene(cutscene_id):
 var opening_cutscene : Dictionary = {
     # the opening cutscene for the game
     # actor 0 = player actor 1 = Renoilt
-    "001" : {"mode": "spawn","path": "res://Scenes/NPCs/Renoilt/renoilt.tscn","start_x": 0,"start_y": 0,"face_dir": 2}
-    #"002" : {},
-    #"003" : {},
+    "001" : {"mode": "spawn","path": "res://Scenes/NPCs/Renoilt/renoilt.tscn","start_x": 0,"start_y": 0,"face_dir": 2},
+    "002" : {"mode": "timer","amount": 100},
+    "003" : {"mode": "npc","actor": 0,"dir": 2,"move_to": Vector2(0,32)}
     #"004" : {},
     #"005" : {},
     #"006" : {},

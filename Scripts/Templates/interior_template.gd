@@ -9,3 +9,8 @@ func _ready():
 
 func _process(_delta):
     pass
+
+
+func clear_characters():
+    for n in $Characters.get_children():
+        $Characters.remove_child(n) # remove the child

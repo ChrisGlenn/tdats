@@ -14,11 +14,12 @@ extends Node
 @export var has_schedule : bool = false # if true the NPC will have a schedule they will follow
 @export var schedule : Dictionary = {} # schedule for the NPC
 var cutscene_mode : bool = false # if the NPC is part of a cutscene or not
+var cutscene_parent # holds the cutscene parent
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
 var move_timer : float = 100.0 # move countdown timer
 var is_moving : bool = false # if the NPC is moving
 var move_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
-var face_dir : int = 0 # typical clockwise (0 = up, 1, 2, 3 = Left)
+var face_dir : int = 2 # typical clockwise (0 = up, 1, 2, 3 = Left DEFAULTS TO DOWN)
 var move_speed : float = 0.50 # NPC movement speed
 var move_to : Vector2 = Vector2.ZERO # coord to move to
 var dialogue_data : Dictionary = {} # holds the dialogue data
@@ -27,7 +28,7 @@ var talked_to : bool = false # if the NPC has been talked to already this story 
 
 func _ready():
 	RNG.randomize() # seed the random
-
+	# set NPC face direction
 
 func npc_movement():
 	# npc movement function

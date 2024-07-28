@@ -7,15 +7,18 @@ var cutscene_data : Dictionary = {} # dictionary to hold parsed JSON cutscene da
 var cutscene_step : int = 0 # iterates through the cutscene JSON data
 var cutscene_finished : bool = false # true if cutscene is completed
 var cutscene_timer : int = 0 # timer for the cutscene
+var cutscene_paused : bool = false # if true then the cutscene will pause
 
 
 func _ready():
 	# get the cutscene data
 	if story_beat != -4 and story_beat == Globals.game_stage:
 		cutscene_data = Cutscenes.set_cutscene(story_beat)
+		get_parent().clear_characters() # run the function to clear all the actors
 
 func _process(delta):
 	cutscene(delta) # cutscene function
+
 
 func cutscene(clock):
 	if cutscene_step < cutscene_data.size():
@@ -38,6 +41,16 @@ func cutscene_modes(mode):
 			var actor_load = load(cutscene_data.values()[cutscene_step]["path"])
 			var actor = actor_load.instantiate()
 			actor.global_position = Vector2(cutscene_data.values()[cutscene_step]["start_x"], cutscene_data.values()[cutscene_step]["start_y"])
+			actor.cutscene_mode = true # enable cutscene mode
+			actor.face_dir = cutscene_data.values()[cutscene_step]["face_dir"] # face direction
+			actor.cutscene_parent = self # set cutscene parent as self
 			get_parent().add_child(actor)
+			cutscene_characters.append(actor) # add actor to the local characters array
+			cutscene_step += 1 # advance to the next step
+		"npc":
+			# move the NPC
+			cutscene_step += 1 # advance to the next step
+		"dialogue":
+			# play the set dialogue
 			cutscene_step += 1 # advance to the next step
 

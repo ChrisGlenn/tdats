@@ -14,6 +14,7 @@ var current_collider # any interactable the player rays may be colliding with
 
 
 func _ready():
+	Globals.player = self # set the Global so the player can be referenced
 	SPRITE.play("walkDown") # start the animation
 
 func _physics_process(_delta):
