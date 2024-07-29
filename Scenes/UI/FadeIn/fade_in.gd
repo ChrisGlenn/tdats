@@ -30,5 +30,5 @@ func _process(delta):
 
 
 func _on_animation_player_animation_finished(_anim_name):
-	if give_control: Globals.can_play = true # let the player resume playing
+	if give_control and !Globals.in_cutscene: Globals.can_play = true # let the player resume playing
 	queue_free() # delete self once animation is over

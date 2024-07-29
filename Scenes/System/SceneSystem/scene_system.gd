@@ -13,6 +13,8 @@ var cutscene_paused : bool = false # if true then the cutscene will pause
 func _ready():
 	# get the cutscene data
 	if story_beat != -4 and story_beat == Globals.game_stage:
+		Globals.in_cutscene = true # the gmae in 'in cutscene'
+		Globals.can_play = false # stop player movement
 		cutscene_data = Cutscenes.set_cutscene(story_beat)
 		get_parent().clear_characters() # run the function to clear all the actors
 
@@ -21,7 +23,7 @@ func _process(delta):
 
 
 func cutscene(clock):
-	if cutscene_step < cutscene_data.size():
+	if cutscene_step < cutscene_data.size() and !cutscene_paused:
 		if cutscene_timer > 0:
 			# decrement the timer and then move on
 			cutscene_timer -= clock * Globals.timer_ctrl
@@ -49,7 +51,11 @@ func cutscene_modes(mode):
 			cutscene_step += 1 # advance to the next step
 		"npc":
 			# move the NPC
+			cutscene_characters[cutscene_data.values()[cutscene_step]["actor"]].face_dir = cutscene_data.values()[cutscene_step]["face_dir"]
+			cutscene_characters[cutscene_data.values()[cutscene_step]["actor"]].move_to = cutscene_data.values()[cutscene_step]["move_to"]
+			cutscene_characters[cutscene_data.values()[cutscene_step]["actor"]].is_moving = true # set the NPC to move
 			cutscene_step += 1 # advance to the next step
+			cutscene_paused = true # pause the cutscene to allow character to move
 		"dialogue":
 			# play the set dialogue
 			cutscene_step += 1 # advance to the next step

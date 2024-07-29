@@ -79,6 +79,9 @@ func update_hud(clock):
 			DIALOGUE_CHOICE.visible = true # show the dialogue choice
 			if diag_pos < dialogue_data.size():
 				type_dialogue(clock) # play the type out animation
+				if diag_next:
+					if Input.is_action_just_pressed("td_A"):
+						diag_pos += 1 # increment to next dialogue position
 			else:
 				# the player has come to the end of the dialogue if they try to advance
 				# the dialogue will close and the HUD will revert back to GAME
