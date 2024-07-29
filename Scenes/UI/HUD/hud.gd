@@ -31,7 +31,7 @@ extends CanvasLayer
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 # dialogue variables
-var dialogue_data : Dictionary = {} # holds the dialogue data
+var dialogue_data : Dictionary = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE"}} # holds the dialogue data
 var dialogue_choice_data : Dictionary = {} # holds the dialogue choice data
 var diag_show_choice : bool = false # if true the dialogue choice screen will show
 var diag_pos : int = 0 # the position in the dialogue data
@@ -42,11 +42,14 @@ var diag_choice_pos : int = 0 # 0 is left/yes 1 is right/no
 
 func _ready():
 	# GAME HUD LOADING
+	Globals.game_ui = self # set the Global for the UI as self
 	LEVEL.text = Globals.current_stage
 	PL_NAME.text = Globals.player_name
 	PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
 	PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
 	PL_LEVEL.text = str(Globals.player_level)
+	# dialogue
+	DIALOGUE_TEXT.visible_characters = 0 # set visible characters to 0
 	# check party size to display member information
 	if Globals.party_size == 1:
 		MEM_TWO.visible = false # hide
@@ -71,24 +74,23 @@ func update_hud(clock):
 		# member two
 		# member three
 	elif HUD_Mode == "DIALOGUE":
-		# the dialogue/message text for the game is displayed here
-		Globals.can_play = false # stop the player from playing to display the dialogue
-		GAME_HUD.visible = false # hide the game HUD
-		if diag_show_choice:
-			DIALOGUE_HUD.visible = false # hide the previous dialogue
-			DIALOGUE_CHOICE.visible = true # show the dialogue choice
-			if diag_pos < dialogue_data.size():
-				type_dialogue(clock) # play the type out animation
-				if diag_next:
-					if Input.is_action_just_pressed("td_A"):
-						diag_pos += 1 # increment to next dialogue position
+		if dialogue_data.size() > 0:
+			# the dialogue/message text for the game is displayed here
+			Globals.can_play = false # stop the player from playing to display the dialogue
+			GAME_HUD.visible = false # hide the game HUD
+			if diag_show_choice:
+				DIALOGUE_HUD.visible = false # hide the previous dialogue
+				DIALOGUE_CHOICE.visible = true # show the dialogue choice
 			else:
-				# the player has come to the end of the dialogue if they try to advance
-				# the dialogue will close and the HUD will revert back to GAME
-				hud_switch("GAME")
+				DIALOGUE_HUD.visible = true # show the previous dialogue
+				DIALOGUE_CHOICE.visible = false # hide the dialogue choice
+				if diag_pos < dialogue_data.size():
+					DIALOGUE_NAME.text = dialogue_data.values()[diag_pos]["name"] # set name
+					DIALOGUE_TEXT.text = dialogue_data.values()[diag_pos]["dialogue"] # set the dialogue text
+					type_dialogue(clock)
 		else:
-			DIALOGUE_HUD.visible = true # show the dialogue HUD
-			DIALOGUE_CHOICE.visible = false # hide the dialogue choice
+			print("ERROR: NO DIALOGUE DATA IS SET!")
+			get_tree().quit() # quit the game after displaying the error for debugging
 	elif HUD_Mode == "MAIN_MENU":
 		# the main menu only happens at the beginning of the game
 		pass
@@ -110,3 +112,4 @@ func type_dialogue(clock):
 			diag_timer = 3 # reset the dialogue timer
 	else:
 		diag_next = true # allow the player to advance to the next dialogue
+		diag_pos += 1 # step to the next dialogue

@@ -7,6 +7,9 @@ var current_stage : String = "~ Paprii City ~" # the current location of the pla
 var in_dialogue : bool = false # will be true if dialogue is happening
 var in_cutscene : bool = false # will be true if cutscene is happening
 
+# UI variables
+var game_ui # holds the UI
+
 # player variables
 var player # holds the player
 var player_name : String = "Adan" # player's name

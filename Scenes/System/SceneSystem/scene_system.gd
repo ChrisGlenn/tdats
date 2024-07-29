@@ -58,5 +58,9 @@ func cutscene_modes(mode):
 			cutscene_paused = true # pause the cutscene to allow character to move
 		"dialogue":
 			# play the set dialogue
+			Globals.game_ui.dialogue_data["001"]["name"] = cutscene_data.values()[cutscene_step]["name"] # set the dialogue data
+			Globals.game_ui.dialogue_data["001"]["dialogue"] = cutscene_data.values()[cutscene_step]["dialogue"]
+			Globals.game_ui.HUD_Mode = "DIALOGUE"
 			cutscene_step += 1 # advance to the next step
+			cutscene_paused = true # pause the cutscene to allow the dialogue to play
 
