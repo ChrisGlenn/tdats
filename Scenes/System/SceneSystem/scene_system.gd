@@ -15,6 +15,7 @@ func _ready():
 	if story_beat != -4 and story_beat == Globals.game_stage:
 		Globals.in_cutscene = true # the gmae in 'in cutscene'
 		Globals.can_play = false # stop player movement
+		Globals.game_ui.cutscene_node = self # set cutscene node
 		cutscene_data = Cutscenes.set_cutscene(story_beat)
 		get_parent().clear_characters() # run the function to clear all the actors
 
@@ -31,6 +32,10 @@ func cutscene(clock):
 			cutscene_timer = 0 # stop it at zero
 			var cutscene_mode = cutscene_data.values()[cutscene_step]["mode"]
 			cutscene_modes(cutscene_mode)
+	elif cutscene_step >= cutscene_data.size() and !cutscene_paused:
+		# end the cutscene and clean up
+		print("3")
+		Globals.game_ui.cutscene_node = null # clear cutscene node
 
 func cutscene_modes(mode):
 	match mode:
@@ -58,9 +63,26 @@ func cutscene_modes(mode):
 			cutscene_paused = true # pause the cutscene to allow character to move
 		"dialogue":
 			# play the set dialogue
+			print("DEBUG: DIALOGUE")
 			Globals.game_ui.dialogue_data["001"]["name"] = cutscene_data.values()[cutscene_step]["name"] # set the dialogue data
 			Globals.game_ui.dialogue_data["001"]["dialogue"] = cutscene_data.values()[cutscene_step]["dialogue"]
+			Globals.game_ui.close_diag = cutscene_data.values()[cutscene_step]["close"]
 			Globals.game_ui.HUD_Mode = "DIALOGUE"
 			cutscene_step += 1 # advance to the next step
 			cutscene_paused = true # pause the cutscene to allow the dialogue to play
+		"player":
+			# controls the player (who is not in the cutscene actors array)
+			cutscene_step += 1 # advance to the next step
+		"music":
+			# plays an OST track
+			cutscene_step += 1 # advance to the next step
+		"sfx":
+			# plays a sound effect
+			cutscene_step += 1 # advance to the next step
+		"end":
+			# the end of the cutscene
+			Globals.can_play = true # restore control back to the player
+			Globals.in_cutscene = false # stop the cutscene
+			print("Cutscene completed")
+			queue_free() # delete this instance of the cutscene system
 

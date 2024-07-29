@@ -52,9 +52,17 @@ func npc_movement(clock):
 						self.global_position.y = move_to.y # make sure the NPC stops at set Y coord
 						cutscene_parent.cutscene_paused = false # 'unpause' the cutscene
 						is_moving = false # stop movement
+				elif face_dir == 2:
+					# move down
+					if self.global_position.y < move_to.y:
+						SPRITE.play("walkDown") # change the animation
+						self.position.y += move_speed * clock # move
+					else:
+						self.global_position.y = move_to.y # make sure NPC stops at set Y coord
+						cutscene_parent.cutscene_paused = false # 'unpase' the cutscene
+						is_moving = false # stop movement
 		else:
-			print("ERROR: NO CUTSCENE PARENT SET!") # let me know if there's no parent set
-			get_tree().quit() # shut the game down
+			cutscene_mode = false # there is no parent so cutscene mode is false
 	else:
 		if has_schedule:
 			pass
