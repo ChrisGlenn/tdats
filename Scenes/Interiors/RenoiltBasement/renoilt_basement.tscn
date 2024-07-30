@@ -21,5 +21,6 @@ position = Vector2(48, 16)
 [node name="Teleport" parent="." instance=ExtResource("3_cod55")]
 position = Vector2(16, 16)
 level_to_load = "res://Scenes/Interiors/RenoiltHome/renoilt_home.tscn"
+play_stairs_sfx = true
 
 [connection signal="body_entered" from="Teleport" to="Player" method="_on_teleport_body_entered"]

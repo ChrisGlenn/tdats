@@ -13,6 +13,7 @@ var game_ui # holds the UI
 # player variables
 var player # holds the player
 var player_name : String = "Adan" # player's name
+var player_class : String = "Hero" # the player's class
 var player_level : int = 1 # player level
 var player_hp : int = 25 # player hit points
 var player_max_hp : int = 25 # maximum player hit points
@@ -38,7 +39,8 @@ var player_coords : Vector2 = Vector2(0,0)
 # party variables
 var party_size : int = 1 # the size of the party
 # party member two (name here)
-var member_two_name : String = "XxXx"
+var member_two_name : String = "Jushan"
+var member_two_class : String = "Archer"
 var member_two_level : int = 2 # starting level
 var member_two_hp : int = 25 # starting hp
 var member_two_max_hp : int = 25 # starting max hp
@@ -58,7 +60,8 @@ var member_two_inventory_armor : Array = [0,0,0,0,0,0] # player's armor
 var pmember_two_inventory_shields : Array = [0,0,0,0,0,0] # player's shields
 var member_two_inventory_items : Array = [0,0,0,0,0,0] # player's items
 # party member three (name here)
-var member_three_name : String = "XxXx"
+var member_three_name : String = "Parus"
+var member_three_class : String = "Cleric"
 var member_three_level : int = 2 # starting level
 var member_three_hp : int = 25 # starting hp
 var member_three_max_hp : int = 25 # starting max hp

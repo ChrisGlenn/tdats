@@ -6,5 +6,9 @@ Manneth = Sareth M
 Marah = Moriah F
 Sarhom = Sahra F
 Joda = Joshua M
+Elom = Elija M
+Jushan = John M (PARTY MEMBER)
+
+Paras = Paul M (PARTY MEMBER)
 
 Annesarai = Jezebel F

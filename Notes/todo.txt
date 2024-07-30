@@ -55,6 +55,9 @@ TO-DO LIST(ALPHA):
         [x] Fade/Scene Change Ready
 [] NPC Template
     [] Dialogue
+        [] Basic Dialogue
+        [] Branching Dialogue
+        [] Dialogue Choice
     [] Quest Give/Complete
     [] Random Movement
     [] Set Movement

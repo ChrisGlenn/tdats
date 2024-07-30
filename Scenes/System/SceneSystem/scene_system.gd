@@ -18,6 +18,8 @@ func _ready():
 		Globals.game_ui.cutscene_node = self # set cutscene node
 		cutscene_data = Cutscenes.set_cutscene(story_beat)
 		get_parent().clear_characters() # run the function to clear all the actors
+	else:
+		queue_free() # delete self if not needed
 
 func _process(delta):
 	cutscene(delta) # cutscene function
@@ -34,7 +36,6 @@ func cutscene(clock):
 			cutscene_modes(cutscene_mode)
 	elif cutscene_step >= cutscene_data.size() and !cutscene_paused:
 		# end the cutscene and clean up
-		print("3")
 		Globals.game_ui.cutscene_node = null # clear cutscene node
 
 func cutscene_modes(mode):
@@ -63,13 +64,15 @@ func cutscene_modes(mode):
 			cutscene_paused = true # pause the cutscene to allow character to move
 		"dialogue":
 			# play the set dialogue
-			print("DEBUG: DIALOGUE")
 			Globals.game_ui.dialogue_data["001"]["name"] = cutscene_data.values()[cutscene_step]["name"] # set the dialogue data
 			Globals.game_ui.dialogue_data["001"]["dialogue"] = cutscene_data.values()[cutscene_step]["dialogue"]
 			Globals.game_ui.close_diag = cutscene_data.values()[cutscene_step]["close"]
 			Globals.game_ui.HUD_Mode = "DIALOGUE"
 			cutscene_step += 1 # advance to the next step
 			cutscene_paused = true # pause the cutscene to allow the dialogue to play
+		"quest":
+			# set a quest as directed
+			cutscene_step += 1 # advance to the next step
 		"player":
 			# controls the player (who is not in the cutscene actors array)
 			cutscene_step += 1 # advance to the next step

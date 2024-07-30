@@ -125,3 +125,5 @@ collide_with_areas = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(8, 32)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
