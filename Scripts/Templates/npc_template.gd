@@ -45,35 +45,35 @@ func npc_movement(clock):
 			if is_moving:
 				if face_dir == 0:
 					# move up
+					SPRITE.play("walkUp") # change the animation
 					if self.global_position.y > move_to.y:
-						SPRITE.play("walkUp") # change the animation
 						self.position.y -= move_speed * clock # move
 					else:
 						self.global_position.y = move_to.y # make sure the NPC stops at set Y coord
 						cutscene_parent.cutscene_paused = false # 'unpause' the cutscene
 						is_moving = false # stop movement
 				elif face_dir == 1:
+					SPRITE.play("walkRight") # change the animation
 					# move right
 					if self.global_position.x < move_to.x:
-						SPRITE.play("walkRight") # change the animation
 						self.position.x += move_speed * clock # move
 					else:
 						self.global_position.x = move_to.x # make sure the NPC stops at set Y coord
 						cutscene_parent.cutscene_paused = false # 'unpause' the cutscene
 						is_moving = false # stop movement
 				elif face_dir == 2:
+					SPRITE.play("walkDown") # change the animation
 					# move down
 					if self.global_position.y < move_to.y:
-						SPRITE.play("walkDown") # change the animation
 						self.position.y += move_speed * clock # move
 					else:
 						self.global_position.y = move_to.y # make sure NPC stops at set Y coord
 						cutscene_parent.cutscene_paused = false # 'unpase' the cutscene
 						is_moving = false # stop movement
 				elif face_dir == 3:
+					SPRITE.play("walkLeft") # change the animation
 					# move left
 					if self.global_position.x > move_to.x:
-						SPRITE.play("walkLeft") # change the animation
 						self.position.x -= move_speed * clock # move
 					else:
 						self.global_position.x = move_to.x # make sure the NPC stops at set Y coord

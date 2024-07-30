@@ -70,8 +70,13 @@ func cutscene_modes(mode):
 			Globals.game_ui.HUD_Mode = "DIALOGUE"
 			cutscene_step += 1 # advance to the next step
 			cutscene_paused = true # pause the cutscene to allow the dialogue to play
-		"quest":
+		"main_quest":
 			# set a quest as directed
+			Globals.main_quest = cutscene_data.values()[cutscene_step]["quest"]
+			cutscene_step += 1 # advance to the next step
+		"game_stage":
+			# change the gamestage
+			Globals.game_stage = cutscene_data.values()[cutscene_step]["stage"]
 			cutscene_step += 1 # advance to the next step
 		"player":
 			# controls the player (who is not in the cutscene actors array)
@@ -82,7 +87,7 @@ func cutscene_modes(mode):
 		"sfx":
 			# plays a sound effect
 			cutscene_step += 1 # advance to the next step
-		"end":
+		"fin":
 			# the end of the cutscene
 			Globals.can_play = true # restore control back to the player
 			Globals.in_cutscene = false # stop the cutscene

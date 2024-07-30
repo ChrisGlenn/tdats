@@ -9,7 +9,9 @@ TO-DO LIST(ALPHA):
     [] Spells
     [] Stats (Equipment Mods)
     [] Leveling Up
-    [] Scene Starting Position Setup
+    [x] Scene Starting Position Setup (interiors)
+    [] Scene Starting Position Setup (city)
+    [] Sleep
 [] Combat
     [] Combat System (the actual combat system for the game...)
     [] Initial Contact Message
@@ -53,6 +55,8 @@ TO-DO LIST(ALPHA):
         [] Chests Recording
     [x] Teleport Spots
         [x] Fade/Scene Change Ready
+    [] Bed
+        [] Bed Choice(?)
 [] NPC Template
     [] Dialogue
         [] Basic Dialogue
@@ -86,6 +90,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [] Keep character animations all in sync (Global timer?)
     [x] Make character animations always play ala Dragon Warrior 1
     [x] Teleport maybe doesn't have player go invisible right away???
 

@@ -6,6 +6,8 @@ var game_stage : int = 0 # used to track main story progress
 var current_stage : String = "~ Paprii City ~" # the current location of the player
 var in_dialogue : bool = false # will be true if dialogue is happening
 var in_cutscene : bool = false # will be true if cutscene is happening
+var main_quest : int = -4 # tracks the main quest (the number corresponds with the array main_quests)
+var side_quest : Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] # tracks the progress of the side quests
 
 # UI variables
 var game_ui # holds the UI
@@ -92,8 +94,12 @@ var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
 # system variables
 var timer_ctrl : int = 100 # timer control
 
+# quest variables
+var main_quests : Array = [
+    "Go see Elom at the Temple in Paprii. The temple is located XXXXXXX."
+]
+
+var side_quests : Dictionary = {}
+
 
 # DEBUGGING
-var debug_dialogue : Dictionary = {
-    "001" : {"name": "DEBUGGER","dialogue": "This is some test dialogue...","branch": false,"choice_a": "","choice_b": ""}
-}

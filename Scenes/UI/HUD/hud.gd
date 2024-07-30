@@ -96,11 +96,9 @@ func update_hud(clock):
 							diag_pos += 1 # advance to the next dialogue line or close the dialogue
 				else:
 					if close_diag: 
-						print("CLOSE")
 						cutscene_node.cutscene_paused = false
 						hud_switch("GAME")
 					else: 
-						print("NO CLOSE")
 						cutscene_node.cutscene_paused = false
 						hud_switch("TRANSITION")
 		else:

@@ -16,6 +16,8 @@ func _ready():
 				if fade_in_beats[n] == Globals.game_stage:
 					fade_in_timer = true # turn on the timer if the current beat corresponds with set beats
 					break; # break out of the loop
+				elif fade_in_beats[n] != Globals.game_stage and n == fade_in_beats.size()-1:
+					$AnimationPlayer.play("fade_in") # else play the animation
 		else: 
 			$AnimationPlayer.play("fade_in") # start the animation
 
