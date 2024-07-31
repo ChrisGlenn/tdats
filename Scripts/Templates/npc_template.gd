@@ -4,14 +4,14 @@ extends Node
 @onready var RNG = RandomNumberGenerator.new() # random number generator
 @onready var SPRITE = $AnimatedSprite2D # animated sprite
 @export var npc_name : String = "NPC" # name of the NPC
+@export_group("NPC Dialogue") # set up NPC dialogue group
+@export var dialogue_random : bool = false # if true the dialogue will be selected randomly
+@export var dialogue_path : String = "" # path to the JSON file
 @export_group("NPC Options") # set up NPC options group
 @export var shop_keeper : bool = false # if this NPC is a shopkeeper
 @export var shop_items : Dictionary = {} # list of items the shopkeeper sells
 @export var quest_giver : bool = false # if this NPC gives any quests
 @export var related_quests : Dictionary = {} # list of quests this NPC gives out
-@export var dialogue_branch : bool = false # if true then this NPC has 'branching' dialogue
-@export var dialogue_random : bool = false # if true the dialogue will be selected randomly
-@export_multiline var dialogue_test : Dictionary # the dialogue data
 @export var has_schedule : bool = false # if true the NPC will have a schedule they will follow
 @export var schedule : Dictionary = {} # schedule for the NPC
 var cutscene_mode : bool = false # if the NPC is part of a cutscene or not
@@ -28,6 +28,17 @@ var talked_to : bool = false # if the NPC has been talked to already this story 
 
 func _ready():
 	RNG.randomize() # seed the random
+	# parse the JSON dialogue
+	if dialogue_path.length() > 0:
+		var json_data = FileAccess.get_file_as_string(dialogue_path)
+		dialogue_data = JSON.parse_string(json_data) # save the data
+		# parse thru the data and delete anything unneeded
+		for n in dialogue_data.size():
+			if dialogue_data.values()[n]["stage"] != Globals.game_stage:
+				# erase the dialogue then
+				print(dialogue_data.values())
+	else:
+		print("WARNING: NO DIALOGUE PATH SET FOR ", self) # print warning
 	# set NPC face direction
 	if face_dir == 0: SPRITE.play("walkUp") # walk up
 	elif face_dir == 1: SPRITE.play("walkRight") # walk right
@@ -87,6 +98,8 @@ func npc_movement(clock):
 			pass
 		else:
 			pass
+	# set the animation frames
+	SPRITE.frame = Globals.frame_ctrl # sync to frame control
 
 
 func _on_body_entered(body):

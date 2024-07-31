@@ -46,7 +46,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkDown",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkLeft",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkRight",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,19 +79,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkUp",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aap6k"]
 
 [node name="Renoilt" type="Area2D" groups=["INTERACT"]]
 script = ExtResource("1_u76ci")
+dialogue_path = "res://JSON/Dialogue/renoilt.json"
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1he8p")
-animation = &"walkDown"
+animation = &"walkUp"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

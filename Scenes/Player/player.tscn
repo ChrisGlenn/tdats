@@ -46,7 +46,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkDown",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkLeft",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkRight",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,7 +79,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkUp",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ijo"]
@@ -94,7 +94,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ibgry")
-animation = &"walkDown"
+animation = &"walkUp"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

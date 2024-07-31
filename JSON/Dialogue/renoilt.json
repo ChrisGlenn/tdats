@@ -1,4 +1,5 @@
 {
-    "001" : {"name": "Renoilt","dialogue": "Please, go see the priest.","story": 0,"branch": false,"choice_a": "","choice_b": "","talked_to": false},
-    "002" : {"name": "Renoilt","dialogue": "Hey, you don't want to see this.","story": 1,"branch": false,"choice_a": "","choice_b": "","talked_to": false}
+    "001" : {"stage": 1,"name": "RENOILT","dialogue": "Please, go speak to Elom at the Temple.","choice": false,"close": false},
+    "002" : {"stage": 1,"name": "RENOILT","dialogue": "The Temple is in the north west section of town.","choice": false,"close": true},
+    "003" : {"stage": 2,"name": "RENOILT","dialogue": "LOL YOU'RE NOT SUPPOSED TO SEE THIS!","choice": false,"close": true}
 }

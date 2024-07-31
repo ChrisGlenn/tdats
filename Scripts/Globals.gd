@@ -93,13 +93,20 @@ var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
 
 # system variables
 var timer_ctrl : int = 100 # timer control
+var frame_timer : int = 40 # the timer between frames 0 and 1
+var frame_ctrl : int = 0 # 0 to 1 for animation frames
 
-# quest variables
-var main_quests : Array = [
-    "Go see Elom at the Temple in Paprii. The temple is located XXXXXXX."
-]
-
-var side_quests : Dictionary = {}
-
+# timer for sync purposes
+func _process(delta):
+    # frame timer/control
+    if frame_timer > 0: frame_timer -= timer_ctrl * delta # decrement the timer
+    else:
+        # swap the frames
+        if frame_ctrl == 0: 
+            frame_ctrl = 1
+            frame_timer = 40
+        else: 
+            frame_ctrl = 0
+            frame_timer = 40
 
 # DEBUGGING

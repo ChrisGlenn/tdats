@@ -1,4 +1,24 @@
 {
-	"001" : {"name": "TESTY"},
-	"002" : {"name": "FOOBY"}
+    "001" : {"mode": "spawn","path": "res://Scenes/NPCs/Renoilt/renoilt.tscn","start_x": 112,"start_y": 32,"face_dir": 2},
+    "002" : {"mode": "timer","amount": 300},
+    "003" : {"mode": "npc","actor": 0,"face_dir": 2,"move_to_x": 0,"move_to_y": 64},
+    "004" : {"mode": "npc","actor": 0,"face_dir": 3,"move_to_x": 80,"move_to_y": 0},
+    "005" : {"mode": "dialogue","name": "RENOILT:","dialogue": "I can't believe it. You are awake!","close": false},
+    "006" : {"mode": "dialogue","name": "RENOILT:","dialogue": "I apologize, I was sure you weren't going to make it.","close": false},
+    "007" : {"mode": "dialogue","name": "RENOILT:","dialogue": "My name is Renoilt. I found you \noutside the city gates...","close": false},
+    "008" : {"mode": "dialogue","name": "RENOILT:","dialogue": "...you had been attacked and close \nto death.","close": false},
+    "009" : {"mode": "dialogue_player","dialogue": "...I...don't remember...","close": false},
+    "010" : {"mode": "dialogue","name": "RENOILT:","dialogue": "Your memory will return to you, I'm sure.","close": false},
+    "011" : {"mode": "dialogue","name": "RENOILT:","dialogue": "I have bad news, though. While you \nwere out...","close": false},
+    "012" : {"mode": "dialogue","name": "RENOILT:","dialogue": "a large tower, like a sword, fell from the sky...","close": false},
+    "013" : {"mode": "dialogue","name": "RENOILT:","dialogue": "and pierced the city. Now the creatures from inside...","close": false},
+    "014" : {"mode": "dialogue","name": "RENOILT:","dialogue": "have taken control of the city. You look like a capable fighter.","close": false},
+    "015" : {"mode": "dialogue","name": "RENOILT:","dialogue": "Please go to the Temple and see Elom, the Priest.","close": false},
+    "016" : {"mode": "dialogue","name": "RENOILT:","dialogue": "He will let you know how you can help.","close": true},
+    "017" : {"mode": "npc","actor": 0,"face_dir": 1,"move_to_x": 112,"move_to_y": 0},
+    "018" : {"mode": "npc","actor": 0,"face_dir": 0,"move_to_x": 0,"move_to_y": 32},
+    "019" : {"mode": "npc","actor": 0,"face_dir": 2,"move_to_x": 112,"move_to_y": 32},
+    "020" : {"mode": "main_quest","quest": 1},
+    "021" : {"mode": "game_stage","stage": 1},
+    "022" : {"mode": "fin"}
 }

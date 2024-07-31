@@ -77,6 +77,8 @@ func player_input():
 		SPRITE.play("walkLeft")
 	elif player_state == "IDLE":
 		pass
+	# set the animation frames
+	SPRITE.frame = Globals.frame_ctrl # sync to frame control
 	# *********
 	# DEBUG
 	# *********

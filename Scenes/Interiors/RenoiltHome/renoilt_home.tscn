@@ -38,6 +38,7 @@ npc_name = "Renoilt"
 
 [node name="OpeningCutscene" parent="." instance=ExtResource("6_knf3w")]
 story_beat = 0
+cutscene_path = "res://JSON/Cutscenes/opening_cs.json"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 texture_filter = 1
