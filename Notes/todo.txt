@@ -53,20 +53,23 @@ TO-DO LIST(ALPHA):
 [] Interactions
     [] Chests
         [] Chests Recording
+        [] Chest Inventory
     [x] Teleport Spots
         [x] Fade/Scene Change Ready
     [] Bed
         [] Bed Choice(?)
 [] NPC Template
     [] Dialogue
-        [] Basic Dialogue
-        [] Branching Dialogue
+        [x] Basic Dialogue
         [] Dialogue Choice
+        [] Shop Dialogue
+        [] Item Aquired Dialogue (Music as well...)
     [] Quest Give/Complete
     [] Random Movement
     [] Set Movement
     [] Schedule
 [] UI
+
     [x] Fade In/Out
         [x] Scene Change
     [] Main Menu

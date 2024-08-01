@@ -25,15 +25,12 @@ extends CanvasLayer
 @onready var DIALOGUE_CHOICE = $DialogueChoice
 @onready var DIALOGUE_YES = $DialogueChoice/Yes_One
 @onready var DIALOGUE_NO = $DialogueChoice/No_Two
-# DIALOGUE CHOICE HUD
-# YES/NO
-# CURSOR
+
 # HUD variables
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
 # dialogue variables
 var cutscene_node # holds the cutscene node
-var dialogue_data : Dictionary = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": "true"}} # holds the dialogue data
-var dialogue_choice_data : Dictionary = {} # holds the dialogue choice data
+var dialogue_data : Dictionary = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": true}} # holds the dialogue data
 var diag_show_choice : bool = false # if true the dialogue choice screen will show
 var diag_pos : int = 0 # the position in the dialogue data
 var diag_next : bool = true # if the dialogue text is done 'typing' and ready to advance
@@ -69,6 +66,7 @@ func update_hud(clock):
 		GAME_HUD.visible = true # show the GAME HUD
 		DIALOGUE_HUD.visible = false # hide the dialogue HUD
 		DIALOGUE_CHOICE.visible = false # hide the dialogue choice HUD
+		Globals.in_dialogue = false # return 
 		# player
 		PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
 		PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
@@ -79,6 +77,7 @@ func update_hud(clock):
 		if dialogue_data.size() > 0:
 			# the dialogue/message text for the game is displayed here
 			Globals.can_play = false # stop the player from playing to display the dialogue
+			Globals.in_dialogue = true
 			GAME_HUD.visible = false # hide the game HUD
 			if diag_show_choice:
 				DIALOGUE_HUD.visible = false # hide the previous dialogue
@@ -89,17 +88,19 @@ func update_hud(clock):
 				if diag_pos < dialogue_data.size():
 					DIALOGUE_NAME.text = dialogue_data.values()[diag_pos]["name"] # set name
 					DIALOGUE_TEXT.text = dialogue_data.values()[diag_pos]["dialogue"] # set the dialogue text
+					close_diag = dialogue_data.values()[diag_pos]["close"] # set the close dialogue check
 					type_dialogue(clock)
 					if Input.is_action_just_pressed("td_A"):
 						if diag_next: 
 							DIALOGUE_TEXT.visible_characters = 0 # reset the visible characters
 							diag_pos += 1 # advance to the next dialogue line or close the dialogue
 				else:
-					if close_diag: 
-						cutscene_node.cutscene_paused = false
+					if close_diag:
+						if cutscene_node: cutscene_node.cutscene_paused = false
+						Globals.can_play = true # return control to the player
 						hud_switch("GAME")
 					else: 
-						cutscene_node.cutscene_paused = false
+						if cutscene_node: cutscene_node.cutscene_paused = false
 						hud_switch("TRANSITION")
 		else:
 			print("ERROR: NO DIALOGUE DATA IS SET!")
@@ -115,8 +116,7 @@ func update_hud(clock):
 
 func hud_switch(hud_mode):
 	# this will make necessary updates for when switching HUD_Mode(s)
-	dialogue_data = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": "true"}} # reset to default
-	dialogue_choice_data.clear() # clear the dialogue choice data
+	dialogue_data = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": true}} # reset to default
 	diag_pos = 0 # reset dialogue position
 	HUD_Mode = hud_mode # change the HUD mode to the requested mode
 

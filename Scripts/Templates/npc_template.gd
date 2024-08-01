@@ -29,21 +29,24 @@ var talked_to : bool = false # if the NPC has been talked to already this story 
 func _ready():
 	RNG.randomize() # seed the random
 	# parse the JSON dialogue
-	if dialogue_path.length() > 0:
-		var json_data = FileAccess.get_file_as_string(dialogue_path)
-		dialogue_data = JSON.parse_string(json_data) # save the data
-		# parse thru the data and delete anything unneeded
-		for n in dialogue_data.size():
-			if dialogue_data.values()[n]["stage"] != Globals.game_stage:
-				# erase the dialogue then
-				print(dialogue_data.values())
-	else:
-		print("WARNING: NO DIALOGUE PATH SET FOR ", self) # print warning
+	if !cutscene_mode:
+		if dialogue_path.length() > 0:
+			var json_data = FileAccess.get_file_as_string(dialogue_path)
+			dialogue_data = JSON.parse_string(json_data)
+			for n in range(dialogue_data.size()-1, -1, -1):
+				if dialogue_data.values()[n]["stage"] != Globals.game_stage:
+					dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+		else:
+			print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
+			get_tree().quit() # quit the game after spitting out the error
 	# set NPC face direction
 	if face_dir == 0: SPRITE.play("walkUp") # walk up
 	elif face_dir == 1: SPRITE.play("walkRight") # walk right
 	elif face_dir == 2: SPRITE.play("walkDown") # walk down
 	elif face_dir == 3: SPRITE.play("walkLeft") # walk left
+
+func _process(_delta):
+	npc_interact() # interaction function
 
 func _physics_process(delta):
 	npc_movement(delta) # npc movement function
@@ -100,6 +103,13 @@ func npc_movement(clock):
 			pass
 	# set the animation frames
 	SPRITE.frame = Globals.frame_ctrl # sync to frame control
+
+func npc_interact():
+	# checks for any input if the NPC is active
+	if is_active:
+		if Input.is_action_just_pressed("td_A"):
+			Globals.game_ui.dialogue_data = dialogue_data
+			Globals.game_ui.HUD_Mode = "DIALOGUE" # switch hud mode to dialogue
 
 
 func _on_body_entered(body):
