@@ -48,12 +48,12 @@ func cutscene_modes(mode):
 	match mode:
 		"timer":
 			cutscene_timer = int(cutscene_data.values()[cutscene_step]["amount"]) # set the timer
-			print("TIMER") # DEBUG
 			cutscene_step += 1 # advance to the next step
 		"spawn":
 			# set the position of the actor
 			var actor_load = load(String(cutscene_data.values()[cutscene_step]["path"]))
 			var actor = actor_load.instantiate()
+			actor.dialogue_path = String(cutscene_data.values()[cutscene_step]["dialogue_path"])
 			actor.global_position = Vector2(float(cutscene_data.values()[cutscene_step]["start_x"]), float(cutscene_data.values()[cutscene_step]["start_y"]))
 			actor.cutscene_mode = true # enable cutscene mode
 			actor.face_dir = int(cutscene_data.values()[cutscene_step]["face_dir"]) # face direction
@@ -104,6 +104,8 @@ func cutscene_modes(mode):
 			cutscene_step += 1 # advance to the next step
 		"fin":
 			# the end of the cutscene
+			for n in cutscene_characters.size():
+				cutscene_characters[n].cutscene_mode = false # turn off cutscene mode
 			Globals.can_play = true # restore control back to the player
 			Globals.in_cutscene = false # stop the cutscene
 			print("Cutscene completed")

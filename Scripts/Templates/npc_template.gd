@@ -97,6 +97,18 @@ func npc_movement(clock):
 			print("ERROR: NO CUTSCENE PARENT SET FOR ", npc_name)
 		if !Globals.in_cutscene: cutscene_mode = false # return to normal
 	else:
+		# check to parse the dialogue data incase this is a 'cutscene' actor NPC
+		if dialogue_data.size() == 0:
+			if dialogue_path.length() > 0:
+				var json_data = FileAccess.get_file_as_string(dialogue_path)
+				dialogue_data = JSON.parse_string(json_data)
+				for n in range(dialogue_data.size()-1, -1, -1):
+					if dialogue_data.values()[n]["stage"] != Globals.game_stage:
+						dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+			else:
+				print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
+				get_tree().quit() # quit the game after spitting out the error
+		# NPC schedule
 		if has_schedule:
 			pass
 		else:
@@ -106,7 +118,7 @@ func npc_movement(clock):
 
 func npc_interact():
 	# checks for any input if the NPC is active
-	if is_active:
+	if is_active and !cutscene_mode:
 		if Input.is_action_just_pressed("td_A"):
 			Globals.game_ui.dialogue_data = dialogue_data
 			Globals.game_ui.HUD_Mode = "DIALOGUE" # switch hud mode to dialogue

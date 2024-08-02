@@ -96,14 +96,14 @@ func update_hud(clock):
 							diag_pos += 1 # advance to the next dialogue line or close the dialogue
 				else:
 					if close_diag:
-						if cutscene_node: cutscene_node.cutscene_paused = false
+						if Globals.in_cutscene and cutscene_node: cutscene_node.cutscene_paused = false # unpause the cutscene
 						Globals.can_play = true # return control to the player
 						hud_switch("GAME")
 					else: 
-						if cutscene_node: cutscene_node.cutscene_paused = false
+						if Globals.in_cutscene and cutscene_node: cutscene_node.cutscene_paused = false # unpause the cutscene
 						hud_switch("TRANSITION")
 		else:
-			print("ERROR: NO DIALOGUE DATA IS SET!")
+			print("ERROR: NO DIALOGUE DATA IS SET: ", self)
 			get_tree().quit() # quit the game after displaying the error for debugging
 	elif HUD_Mode == "MAIN_MENU":
 		# the main menu only happens at the beginning of the game
