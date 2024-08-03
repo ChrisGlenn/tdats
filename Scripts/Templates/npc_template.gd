@@ -10,8 +10,6 @@ extends Node
 @export_group("NPC Options") # set up NPC options group
 @export var shop_keeper : bool = false # if this NPC is a shopkeeper
 @export var shop_items : Dictionary = {} # list of items the shopkeeper sells
-@export var quest_giver : bool = false # if this NPC gives any quests
-@export var related_quests : Dictionary = {} # list of quests this NPC gives out
 @export var has_schedule : bool = false # if true the NPC will have a schedule they will follow
 @export var schedule : Dictionary = {} # schedule for the NPC
 var cutscene_mode : bool = false # if the NPC is part of a cutscene or not
@@ -23,7 +21,7 @@ var face_dir : int = 2 # typical clockwise (0 = up, 1, 2, 3 = Left DEFAULTS TO D
 var move_speed : float = 43.0 # NPC movement speed
 var move_to : Vector2 = Vector2.ZERO # coord to move to
 var dialogue_data : Dictionary = {} # holds the dialogue data
-var talked_to : bool = false # if the NPC has been talked to already this story beat
+var random_diag_pos : int # holds the random dialogue position
 
 
 func _ready():
@@ -108,7 +106,8 @@ func npc_movement(clock):
 			else:
 				print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
 				get_tree().quit() # quit the game after spitting out the error
-		# NPC schedule
+		# NPC SCHEDULE
+		# this is a random pick
 		if has_schedule:
 			pass
 		else:
@@ -119,14 +118,23 @@ func npc_movement(clock):
 func npc_interact():
 	# checks for any input if the NPC is active
 	if is_active and !cutscene_mode:
+		# check for input and start the dialogue
 		if Input.is_action_just_pressed("td_A"):
-			Globals.game_ui.dialogue_data = dialogue_data
+			if dialogue_random:
+				Globals.game_ui.dialogue_data["001"]["name"] = dialogue_data.values()[random_diag_pos]["name"]
+				Globals.game_ui.dialogue_data["001"]["dialogue"] = dialogue_data.values()[random_diag_pos]["dialogue"]
+				Globals.game_ui.close_diag = true # close after random dialogue
+				random_diag_pos = RNG.randi_range(0, dialogue_data.size()-1) # set random dialogue position
+			else:
+				Globals.game_ui.dialogue_data = dialogue_data
 			Globals.game_ui.HUD_Mode = "DIALOGUE" # switch hud mode to dialogue
 
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):
 		is_active = true # NPC is 'active'
+		if dialogue_random: 
+			random_diag_pos = RNG.randi_range(0, dialogue_data.size()-1) # set random dialogue position
 
 func _on_body_exited(body):
 	if body.is_in_group("PLAYER"):

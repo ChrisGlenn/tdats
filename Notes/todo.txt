@@ -61,7 +61,7 @@ TO-DO LIST(ALPHA):
 [] NPC Template
     [] Dialogue
         [x] Basic Dialogue
-        [] Dialogue Choice
+        [x] Random Dialogue
         [] Shop Dialogue
         [] Item Aquired Dialogue (Music as well...)
     [] Quest Give/Complete
