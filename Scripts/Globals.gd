@@ -93,7 +93,7 @@ var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
 
 # system variables
 var timer_ctrl : int = 100 # timer control
-var frame_timer : int = 40 # the timer between frames 0 and 1
+var frame_timer : int = 20 # the timer between frames 0 and 1
 var frame_ctrl : int = 0 # 0 to 1 for animation frames
 
 # timer for sync purposes
@@ -104,9 +104,9 @@ func _process(delta):
         # swap the frames
         if frame_ctrl == 0: 
             frame_ctrl = 1
-            frame_timer = 40
+            frame_timer = 20
         else: 
             frame_ctrl = 0
-            frame_timer = 40
+            frame_timer = 20
 
 # DEBUGGING

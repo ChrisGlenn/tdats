@@ -44,10 +44,9 @@ TO-DO LIST(ALPHA):
     [] Game Menu
         [] Equipment
         [] Inventory
-        [] Save
-        [] Load
         [] Status
         [] Quit
+        [] Return
     [] Member Two HUD Display
     [] Member Three HUD Display
 [] Interactions
@@ -58,6 +57,7 @@ TO-DO LIST(ALPHA):
         [x] Fade/Scene Change Ready
     [] Bed
         [] Bed Choice(?)
+    [] Teleport Spell
 [] NPC Template
     [] Dialogue
         [x] Basic Dialogue
@@ -69,7 +69,6 @@ TO-DO LIST(ALPHA):
     [] Set Movement
     [] Schedule
 [] UI
-
     [x] Fade In/Out
         [x] Scene Change
     [] Main Menu
