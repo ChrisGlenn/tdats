@@ -4,11 +4,36 @@ The locations in Paprii city.
 Special:
 Governor's Manson - In the northwest corner lies the Governor's Mansion
 Poriah's Well - The large well that also pours out to a small 'beach'
+Temple - The smaller temple that is in the upper class part of town. Made just for the upper class.
+Abel's Corner - Where the homeless Abel lives near the well.
+Guard's Barracks - Where Eli is, where the guards Sleep.
+
 
 Lower Class:
+Mariah's Home
+Damarah's Home
+Julea's Home
+Pirgo's Home
+Mechmel's Home
+Jesha's Home
 
 Middle Class:
+Reniolt's Home
+Ruth's Home
+Gath's Home
+Cain's Home
+Galil's Home
 
 Upper Class:
+Herod's Home
+Nahrud's Home
+Kaneel's Home
+Chezic's Home
+Cabar's Home
 
 Shops:
+Paprii Inn and Tavern
+The Rogue
+Palphu's Potions
+Food Shops
+Stables
