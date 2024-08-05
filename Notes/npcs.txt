@@ -1,14 +1,40 @@
 NPC LIST
 The new names of the NPC's from the Design Document
 
-Renoilt = Renoilt (Half/Skodian) M
+Renoilt = Renoilt M (upper class) 
 Manneth = Sareth M
 Marah = Moriah F
 Sarhom = Sahra F
 Joda = Joshua M
 Elom = Elija M
 Jushan = John M (PARTY MEMBER)
-
+Eloise = Jushan's wife (Florence) (shop)
+Charles = Eloise brother M (shop)
+Ruhaboam = Ruth F (middle class)
 Paras = Paul M (PARTY MEMBER)
-
 Annesarai = Jezebel F
+Ninerah = Naoimi N (shop)
+Palphu = M (shop)
+Herrat = M Herod (upper class)
+Hessat = M Helseth (upper class)
+Zemariah = Zachariah  M (lower class)
+Mariah = Mara  F (lower class)
+Damarah = Deborah  F (lower class)
+Abel = M (homeless)
+Gath = Gaius  M (upper class)
+Julea = Julia  F (lower class)
+Marnus = M Marcus (lower class)
+Nahrud = Nathan (lower class)
+Pirgo = Pilot M (lower class)
+Kaneel = Keenan M (upper class)
+Cain = M (upper class)
+Eli = M (guard)
+Galil = Felix M (middle class)
+Chezic = Cedric M (middle class)
+Mechmel = Michael M (middle class)
+Jordah = Jordan M (middle class)
+Baalzor = Baal M (horse stables)
+Canar = Ceasar M (governor's house)
+Cabar = Caleb M (upper class)
+Jesha = Jazmine (lower class)
+
