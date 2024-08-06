@@ -1,5 +1,5 @@
 {
-    "001" : {"mode": "spawn","path": "res://Scenes/NPCs/Renoilt/renoilt.tscn","dialogue_path": "res://JSON/Dialogue/renoilt.json","start_x": 112,"start_y": 32,"face_dir": 2},
+    "001" : {"mode": "spawn","path": "res://Scenes/NPCs/Renoilt/renoilt.tscn","dialogue_path": "res://JSON/Dialogue/renoilt.json","dialogue_random": true,"start_x": 112,"start_y": 32,"face_dir": 2},
     "002" : {"mode": "timer","amount": 300},
     "003" : {"mode": "npc","actor": 0,"face_dir": 2,"move_to_x": 0,"move_to_y": 64},
     "004" : {"mode": "npc","actor": 0,"face_dir": 3,"move_to_x": 80,"move_to_y": 0},

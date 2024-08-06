@@ -37,11 +37,15 @@ dialogue_random = true
 
 [node name="Interactable" type="Node2D" parent="."]
 
+[node name="Teleport" parent="Interactable" instance=ExtResource("8_7vvmo")]
+position = Vector2(144, 96)
+level_to_load = "res://Scenes/Paprii/paprii_city.tscn"
+
 [node name="OpeningCutscene" parent="." instance=ExtResource("6_knf3w")]
 story_beat = 0
 cutscene_path = "res://JSON/Cutscenes/opening_cs.json"
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Smoke" type="CPUParticles2D" parent="."]
 texture_filter = 1
 position = Vector2(168, 26)
 amount = 1

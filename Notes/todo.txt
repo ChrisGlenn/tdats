@@ -40,7 +40,7 @@ TO-DO LIST(ALPHA):
     [x] Player HP/HP Max
     [x] Player XP/XP Next
     [] Main Menu
-    [] Pause Screen
+    [x] Pause Screen
     [] Game Menu
         [] Equipment
         [] Inventory
@@ -49,6 +49,7 @@ TO-DO LIST(ALPHA):
         [] Return
     [] Member Two HUD Display
     [] Member Three HUD Display
+    [] Opening Exposition Text/Images
 [] Interactions
     [] Chests
         [] Chests Recording
@@ -58,6 +59,7 @@ TO-DO LIST(ALPHA):
     [] Bed
         [] Bed Choice(?)
     [] Teleport Spell
+    [] Save Temple
 [] NPC Template
     [] Dialogue
         [x] Basic Dialogue
@@ -83,8 +85,31 @@ TO-DO LIST(ALPHA):
         [] Dungeon Levels
         [] Map 'Exploration' (Map will reveal as player moves)
         [] Map Labels/Icons
+[] Interiors
+    [x] Renoilt Home
+    [] Paprii Inn and Tavern
+    [] Mariah's Home
+    [] Damarah's Home
+    [] Julea's Home
+    [] Pirgo's Home
+    [] Mechmel's Home
+    [] Jesha's Home
+    [] Ruth's Home
+    [] Sarha's Home
+    [] Gath's Home
+    [] Cain's Home
+    [] Galil's Home
+    [] Herod's Home
+    [] Nahrud's Home
+    [] Kaneel's Home
+    [] Chezic's Home
+    [] Cabar's Home
+    [] The Rogue
+    [] Palphu's Potions
+    [] Food Shops
+    [] Stables
 [] System
-    [] Cutscene System
+    [x] Cutscene System
     [] Save Game
     [] Load Game
     [] Options
@@ -92,6 +117,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [] Add Starting Face Direction for Player in Interiors...
     [x] Keep character animations all in sync (Global timer?)
     [x] Transfer Cutscene data to JSON
     [x] Make character animations always play ala Dragon Warrior 1

@@ -54,6 +54,7 @@ func cutscene_modes(mode):
 			var actor_load = load(String(cutscene_data.values()[cutscene_step]["path"]))
 			var actor = actor_load.instantiate()
 			actor.dialogue_path = String(cutscene_data.values()[cutscene_step]["dialogue_path"])
+			actor.dialogue_random = bool(cutscene_data.values()[cutscene_step]["dialogue_random"])
 			actor.global_position = Vector2(float(cutscene_data.values()[cutscene_step]["start_x"]), float(cutscene_data.values()[cutscene_step]["start_y"]))
 			actor.cutscene_mode = true # enable cutscene mode
 			actor.face_dir = int(cutscene_data.values()[cutscene_step]["face_dir"]) # face direction
