@@ -23,8 +23,10 @@ extends CanvasLayer
 @onready var DIALOGUE_HUD = $Dialogue
 @onready var DIALOGUE_NAME = $Dialogue/DiagNameLabel
 @onready var DIALOGUE_TEXT = $Dialogue/DiagText
+@onready var MENU = $GameMenu
+@onready var MENU_CURSOR = $GameMenu/MenuCursor
 # HUD variables
-var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE
+var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE, MENU
 # dialogue variables
 var cutscene_node # holds the cutscene node
 var dialogue_data : Dictionary = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": true}} # holds the dialogue data
@@ -32,6 +34,8 @@ var diag_pos : int = 0 # the position in the dialogue data
 var diag_next : bool = true # if the dialogue text is done 'typing' and ready to advance
 var diag_timer : int = 3 # timer countdown between displaying a character
 var close_diag : bool = false # this will close the dialogue during a cutscene
+# menu variables
+var menu_cur_pos : int = 0 # the menu cursor position
 
 
 func _ready():
@@ -60,19 +64,25 @@ func update_hud(clock):
 		# this shows the player/party stats
 		GAME_HUD.visible = true # show the GAME HUD
 		DIALOGUE_HUD.visible = false # hide the dialogue HUD
+		MENU.visible = false # hide the menu
 		Globals.in_dialogue = false # return 
-		# pause menu
-		if Input.is_action_just_pressed("td_START"):
-			if !get_tree().paused:
-				var paused = PAUSED.instantiate()
-				get_parent().add_child(paused)
-				get_tree().paused = true # pause the game
+		if menu_cur_pos != 0: menu_cur_pos = 0 # reset the menu cursor position
 		# player
 		PL_HP.text = str(Globals.player_hp, "/", Globals.player_max_hp)
 		PL_MP.text = str(Globals.player_mp, "/", Globals.player_max_mp)
 		PL_LEVEL.text = str(Globals.player_level)
 		# member two
 		# member three
+		# INPUT MONITORING
+		# pause menu
+		if Input.is_action_just_pressed("td_START"):
+			if !get_tree().paused:
+				var paused = PAUSED.instantiate()
+				get_parent().add_child(paused)
+				get_tree().paused = true # pause the game
+		# game menu
+		if Input.is_action_just_pressed("td_SELECT"):
+			HUD_Mode = "MENU" # switch to menu mode
 	elif HUD_Mode == "DIALOGUE":
 		if dialogue_data.size() > 0:
 			# the dialogue/message text for the game is displayed here
@@ -80,6 +90,7 @@ func update_hud(clock):
 			Globals.in_dialogue = true
 			GAME_HUD.visible = false # hide the game HUD
 			DIALOGUE_HUD.visible = true # show the previous dialogue
+			MENU.visible = false # hide the menu
 			if diag_pos < dialogue_data.size():
 				DIALOGUE_NAME.text = dialogue_data.values()[diag_pos]["name"] # set name
 				DIALOGUE_TEXT.text = dialogue_data.values()[diag_pos]["dialogue"] # set the dialogue text
@@ -102,11 +113,52 @@ func update_hud(clock):
 			get_tree().quit() # quit the game after displaying the error for debugging
 	elif HUD_Mode == "MAIN_MENU":
 		# the main menu only happens at the beginning of the game
-		pass
+		GAME_HUD.visible = false
+		MENU.visible = false # hide the menu
+		DIALOGUE_HUD.visible = false
 	elif HUD_Mode == "TRANSITION":
 		# hide all the huds
 		GAME_HUD.visible = false
+		MENU.visible = false # hide the menu
 		DIALOGUE_HUD.visible = false
+	elif HUD_Mode == "MENU":
+		GAME_HUD.visible = false
+		MENU.visible = true # show the menu
+		DIALOGUE_HUD.visible = false
+		get_tree().paused = true # pause the game
+		menu_cursor() # cursor movement function
+
+func menu_cursor():
+	# controls the cursor movement function along with player input to redirect the user
+	# to the selected menu item
+	if menu_cur_pos < 4:
+		if Input.is_action_just_pressed("td_DOWN"):
+			menu_cur_pos += 1 # increment cursor position
+	if menu_cur_pos > 0:
+		if Input.is_action_just_pressed("td_UP"):
+			menu_cur_pos -= 1 # decrement cursor position
+	# interaction
+	if Input.is_action_just_pressed("td_A"):
+		if menu_cur_pos == 4:
+			get_tree().paused = false # unpause the game
+			HUD_Mode = "GAME" # return to the main UI mode
+	# set cursor position
+	match menu_cur_pos:
+		0:
+			# equipment
+			MENU_CURSOR.global_position = Vector2(34,40)
+		1:
+			# inventory
+			MENU_CURSOR.global_position = Vector2(34,54)
+		2:
+			# status
+			MENU_CURSOR.global_position = Vector2(34,68)
+		3:
+			# quit game
+			MENU_CURSOR.global_position = Vector2(34,82)
+		4:
+			# close menu
+			MENU_CURSOR.global_position = Vector2(34,98)
 
 func hud_switch(hud_mode):
 	# this will make necessary updates for when switching HUD_Mode(s)

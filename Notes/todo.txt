@@ -110,6 +110,7 @@ TO-DO LIST(ALPHA):
     [] Stables
 [] System
     [x] Cutscene System
+    [] "Time" System (BTS only)
     [] Save Game
     [] Load Game
     [] Options

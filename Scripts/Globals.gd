@@ -95,6 +95,10 @@ var current_enemy_hp_max : int = 0 # the max HP of the current enemy for the HUD
 var timer_ctrl : int = 100 # timer control
 var frame_timer : int = 20 # the timer between frames 0 and 1
 var frame_ctrl : int = 0 # 0 to 1 for animation frames
+var game_schedule : int = 0 # 0 to 3 
+var system_time # holds a dictionary of the system time
+var time_placeholder : int = 0
+var system_minutes_left : int = 30
 
 # timer for sync purposes
 func _process(delta):
@@ -108,5 +112,22 @@ func _process(delta):
         else: 
             frame_ctrl = 0
             frame_timer = 20
+    # in game time
+    system_time = Time.get_time_dict_from_system(false)
+    if time_placeholder != system_time["minute"]:
+        if system_minutes_left > 0:
+            # decrement the system_minutes_left timer
+            time_placeholder = system_time["minute"]
+            system_minutes_left -= 1
+        else:
+            # the system_minutes_left timer has hit zerio
+            # change the schedule by 1 OR reset if at 3
+            if game_schedule < 3:
+                game_schedule += 1 # increment schedule
+                system_minutes_left = 30 # reset the system minutes left
+            else:
+                game_schedule = 0 # reset the game schedule back to 0
+                system_minutes_left = 30 # reset the system minutes left
+
 
 # DEBUGGING

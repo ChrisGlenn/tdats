@@ -12,6 +12,10 @@ extends Node
 @export var shop_items : Dictionary = {} # list of items the shopkeeper sells
 @export var has_schedule : bool = false # if true the NPC will have a schedule they will follow
 @export var schedule : Dictionary = {} # schedule for the NPC
+@export var has_quest : bool = false # if this NPC has a main quest attached to it
+@export var quest_ref : int = -4 # the reference for the quest
+@export var has_side_quest : bool = false # if this NPC has a side quest attached to them
+@export var side_quest_ref : int = -4 # the reference for the side quest
 var cutscene_mode : bool = false # if the NPC is part of a cutscene or not
 var cutscene_parent # holds the cutscene parent
 var is_active : bool = false # if the NPC is 'active' (player ray is colliding)
@@ -132,6 +136,7 @@ func npc_interact():
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):
+		print("ENETERED")
 		is_active = true # NPC is 'active'
 		if dialogue_random: 
 			random_diag_pos = RNG.randi_range(0, dialogue_data.size()-1) # set random dialogue position

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb6idxo7n35sb"]
+
+[ext_resource type="Texture2D" uid="uid://b0dimkwm3tshg" path="res://Sprites/Characters.png" id="1_a8j3d"]
+[ext_resource type="Script" path="res://Scripts/Templates/npc_template.gd" id="1_ag5ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7sea"]
+atlas = ExtResource("1_a8j3d")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csedm"]
+atlas = ExtResource("1_a8j3d")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcn7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7sea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csedm")
+}],
+"loop": true,
+"name": &"walkDown",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8ddb"]
+
+[node name="Sarha" type="Area2D"]
+script = ExtResource("1_ag5ub")
+npc_name = "Sarha"
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wcn7k")
+animation = &"walkDown"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_y8ddb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
