@@ -103,7 +103,6 @@ func update_hud(clock):
 						if dialogue_data.values()[diag_pos]["inc_quest"] == true:
 							var side_quest_ref = int(dialogue_data.values()[diag_pos]["side_quest"]) # increment the side quest
 							Globals.side_quest[side_quest_ref] += 1 # increment the side quest status
-							print(Globals.side_quest) # DEBUG print
 						DIALOGUE_TEXT.visible_characters = 0 # reset the visible characters
 						diag_pos += 1 # advance to the next dialogue line or close the dialogue
 			else:

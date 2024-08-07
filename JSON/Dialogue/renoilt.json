@@ -1,5 +1,5 @@
 {
-    "001" : {"control": 1,"name": "RENOILT","dialogue": "Please, go speak to Elom at the Temple.","inc_quest": false,"close": true},
-    "002" : {"control": 1,"name": "RENOILT","dialogue": "The Temple is in the north west section of town.","inc_quest": false,"close": true},
-    "003" : {"control": 1,"name": "RENOILT","dialogue": "Elom will know what to do.","inc_quest": false,"close": true}
+    "001" : {"control": 1,"name": "RENOILT:","dialogue": "Please, go speak to Elom at the Temple.","inc_quest": false,"close": true},
+    "002" : {"control": 1,"name": "RENOILT:","dialogue": "The Temple is in the north west section of town.","inc_quest": false,"close": true},
+    "003" : {"control": 1,"name": "RENOILT:","dialogue": "Elom will know what to do.","inc_quest": false,"close": true}
 }

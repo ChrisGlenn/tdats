@@ -1,4 +1,4 @@
 {
-    "001" : {"control": 0,"name": "SARHA","dialogue": "My son, can you save him?","side_quest": 0,"inc_quest": true,"close": true},
-    "002" : {"control": 1,"name": "SARHA","dialogue": "My son, please save him!","side_quest": 0,"inc_quest": false,"close": true}
+    "001" : {"control": 0,"name": "SARHA:","dialogue": "My son, can you save him?","side_quest": 0,"inc_quest": true,"close": true},
+    "002" : {"control": 1,"name": "SARHA:","dialogue": "My son, please save him!","side_quest": 0,"inc_quest": false,"close": true}
 }
