@@ -105,8 +105,6 @@ func cutscene_modes(mode):
 			cutscene_step += 1 # advance to the next step
 		"fin":
 			# the end of the cutscene
-			for n in cutscene_characters.size():
-				cutscene_characters[n].cutscene_mode = false # turn off cutscene mode
 			Globals.can_play = true # restore control back to the player
 			Globals.in_cutscene = false # stop the cutscene
 			print("Cutscene completed")

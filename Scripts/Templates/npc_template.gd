@@ -97,19 +97,10 @@ func npc_movement(clock):
 						is_moving = false # stop movement
 		else:
 			print("ERROR: NO CUTSCENE PARENT SET FOR ", npc_name)
-		if !Globals.in_cutscene: cutscene_mode = false # return to normal
+		if !Globals.in_cutscene: 
+			cutscene_end() # parese dialogue and other end of cutscene stuff
+			cutscene_mode = false # return to normal
 	else:
-		# check to parse the dialogue data incase this is a 'cutscene' actor NPC
-		if dialogue_data.size() == 0:
-			if dialogue_path.length() > 0:
-				var json_data = FileAccess.get_file_as_string(dialogue_path)
-				dialogue_data = JSON.parse_string(json_data)
-				for n in range(dialogue_data.size()-1, -1, -1):
-					if dialogue_data.values()[n]["stage"] != Globals.game_stage:
-						dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
-			else:
-				print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
-				get_tree().quit() # quit the game after spitting out the error
 		# NPC SCHEDULE
 		# this is a random pick
 		if has_schedule:
@@ -133,6 +124,18 @@ func npc_interact():
 				Globals.game_ui.dialogue_data = dialogue_data
 			Globals.game_ui.HUD_Mode = "DIALOGUE" # switch hud mode to dialogue
 
+func cutscene_end():
+	# check to parse the dialogue data incase this is a 'cutscene' actor NPC
+	if dialogue_data.size() == 0:
+		if dialogue_path.length() > 0:
+			var json_data = FileAccess.get_file_as_string(dialogue_path)
+			dialogue_data = JSON.parse_string(json_data)
+			for n in range(dialogue_data.size()-1, -1, -1):
+				if dialogue_data.values()[n]["stage"] != Globals.game_stage:
+					dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+		else:
+			print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
+			get_tree().quit() # quit the game after spitting out the error
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):

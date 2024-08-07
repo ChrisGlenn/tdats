@@ -118,6 +118,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [] Redo dialogue 'stage' to take into account other factors like side-quests, random, ect...
     [] Add Starting Face Direction for Player in Interiors...
     [x] Keep character animations all in sync (Global timer?)
     [x] Transfer Cutscene data to JSON
