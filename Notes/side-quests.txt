@@ -1,0 +1,19 @@
+*** SIDE QUESTS ***
+A list of side-quests and their reference in the globals array
+
+
+[0] = Prodigal:
+The old woman, Sarha, wants her son, Joda, to quit the Dark Guard and return home to hide out in her basement. She needs you to talk to him and get him to quit. You talk to Joda to learn that he wants to quit but doesn't think anyone can defeat the Dark Army and he doesn't want harm to come to his mother. He wants proof that you may be able to defeat this Dark Army. He wants the head of of a Kaytar from the 4th floor. After bringing it to him he will disappear and appear in his Mother's basement.
+
+[1] = Jushan the Brave:
+Eloise in in her brother's shop, the Paprii Arms. She wants you to free her husband who spoke out publically against the youth of the town joining the Dark Guard. You will find him behind bars on the 2nd floor, but you also have to open two other doors beside his cell that have strong Rath Dogs to free him. He is a party member and will give you a 'Protect Orb' equivalent.
+
+[2] = Awakening:
+Ruhaboam needs 10 items from around the city and the tower. She needs: Mutt Hair, Grease, Blood, Puss, Kaytar Eggs, Gold Chips, Bone Marrow, Tainted Water, Iron, and Calcium. She pays 200 gold per item and an additional 1000 once you complete the list. She makes a potion that resurrects her dead husband into a zombie that will be seen now in her home.
+
+[3] = Revenge:
+Defeat the General on the 6th floor and let Hessat know and he will award you with an 'Attack Orb' equivalent.
+
+[4] = Drk Heart:
+Zemariah, a Dark Guard, wants you to deliver a letter to his dying mother. He will give you information about the 'Hammer'.
+

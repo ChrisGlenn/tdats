@@ -29,6 +29,14 @@ window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://JSON/": "orange",
+"res://Notes/": "yellow"
+}
+
 [input]
 
 td_UP={

@@ -36,8 +36,15 @@ func _ready():
 			var json_data = FileAccess.get_file_as_string(dialogue_path)
 			dialogue_data = JSON.parse_string(json_data)
 			for n in range(dialogue_data.size()-1, -1, -1):
-				if dialogue_data.values()[n]["stage"] != Globals.game_stage:
-					dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+				if has_side_quest:
+					# if the npc gives out a side quest then the dialogue control will search the side quest array
+					# and match with that
+					if dialogue_data.values()[n]["control"] != Globals.side_quest[side_quest_ref]:
+						dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+				else:
+					# the dialogue control will check against the Globals.game_stage
+					if dialogue_data.values()[n]["control"] != Globals.game_stage:
+						dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
 		else:
 			print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
 			get_tree().quit() # quit the game after spitting out the error
@@ -98,7 +105,7 @@ func npc_movement(clock):
 		else:
 			print("ERROR: NO CUTSCENE PARENT SET FOR ", npc_name)
 		if !Globals.in_cutscene: 
-			cutscene_end() # parese dialogue and other end of cutscene stuff
+			refresh_dialogue() # parese dialogue and other end of cutscene stuff
 			cutscene_mode = false # return to normal
 	else:
 		# NPC SCHEDULE
@@ -122,24 +129,30 @@ func npc_interact():
 				random_diag_pos = RNG.randi_range(0, dialogue_data.size()-1) # set random dialogue position
 			else:
 				Globals.game_ui.dialogue_data = dialogue_data
+				Globals.game_ui.dialogue_npc = self # set the NPC in the dialogue_npc
 			Globals.game_ui.HUD_Mode = "DIALOGUE" # switch hud mode to dialogue
 
-func cutscene_end():
+func refresh_dialogue():
 	# check to parse the dialogue data incase this is a 'cutscene' actor NPC
-	if dialogue_data.size() == 0:
-		if dialogue_path.length() > 0:
-			var json_data = FileAccess.get_file_as_string(dialogue_path)
-			dialogue_data = JSON.parse_string(json_data)
-			for n in range(dialogue_data.size()-1, -1, -1):
-				if dialogue_data.values()[n]["stage"] != Globals.game_stage:
+	if dialogue_path.length() > 0:
+		var json_data = FileAccess.get_file_as_string(dialogue_path)
+		dialogue_data = JSON.parse_string(json_data)
+		for n in range(dialogue_data.size()-1, -1, -1):
+			if has_side_quest:
+				# if the npc gives out a side quest then the dialogue control will search the side quest array
+				# and match with that
+				if dialogue_data.values()[n]["control"] != Globals.side_quest[side_quest_ref]:
 					dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
-		else:
-			print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
-			get_tree().quit() # quit the game after spitting out the error
+			else:
+				# the dialogue control will check against the Globals.game_stage
+				if dialogue_data.values()[n]["control"] != Globals.game_stage:
+					dialogue_data.erase(dialogue_data.keys()[n]) # delete the entry from the dialogue
+	else:
+		print("ERROR: NO DIALOGUE PATH SET FOR ", npc_name)
+		get_tree().quit() # quit the game after spitting out the error
 
 func _on_body_entered(body):
 	if body.is_in_group("PLAYER"):
-		print("ENETERED")
 		is_active = true # NPC is 'active'
 		if dialogue_random: 
 			random_diag_pos = RNG.randi_range(0, dialogue_data.size()-1) # set random dialogue position

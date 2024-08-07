@@ -29,6 +29,7 @@ extends CanvasLayer
 var HUD_Mode : String = "GAME" # MAIN_MENU, GAME, DIALOGUE, MENU
 # dialogue variables
 var cutscene_node # holds the cutscene node
+var dialogue_npc # holds the NPC that is currently interacting with the player (dialogue only, not for cutscene usage!!!)
 var dialogue_data : Dictionary = {"001" : {"name": "DEBUG","dialogue": "DEBUG DIALOGUE","close": true}} # holds the dialogue data
 var diag_pos : int = 0 # the position in the dialogue data
 var diag_next : bool = true # if the dialogue text is done 'typing' and ready to advance
@@ -98,11 +99,17 @@ func update_hud(clock):
 				type_dialogue(clock)
 				if Input.is_action_just_pressed("td_A"):
 					if diag_next: 
+						# check if a side quest needs to be updated
+						if dialogue_data.values()[diag_pos]["inc_quest"] == true:
+							var side_quest_ref = int(dialogue_data.values()[diag_pos]["side_quest"]) # increment the side quest
+							Globals.side_quest[side_quest_ref] += 1 # increment the side quest status
+							print(Globals.side_quest) # DEBUG print
 						DIALOGUE_TEXT.visible_characters = 0 # reset the visible characters
 						diag_pos += 1 # advance to the next dialogue line or close the dialogue
 			else:
 				if close_diag:
 					if Globals.in_cutscene and cutscene_node: cutscene_node.cutscene_paused = false # unpause the cutscene
+					if dialogue_npc: dialogue_npc.refresh_dialogue() # refresh the NPC's dialogue
 					Globals.can_play = true # return control to the player
 					hud_switch("GAME")
 				else: 

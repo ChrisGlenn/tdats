@@ -64,6 +64,7 @@ TO-DO LIST(ALPHA):
     [] Dialogue
         [x] Basic Dialogue
         [x] Random Dialogue
+        [x] Side Quest Dialogue
         [] Shop Dialogue
         [] Item Aquired Dialogue (Music as well...)
     [] Quest Give/Complete
@@ -118,6 +119,7 @@ TO-DO LIST(ALPHA):
 
 
 ALPHA BUG-FIX LIST:
+    [] NPC's face player when talking to them (meaning they all need 4 direction sprites)
     [] Redo dialogue 'stage' to take into account other factors like side-quests, random, ect...
     [] Add Starting Face Direction for Player in Interiors...
     [x] Keep character animations all in sync (Global timer?)

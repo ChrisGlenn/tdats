@@ -30,6 +30,9 @@ animations = [{
 [node name="Sarha" type="Area2D"]
 script = ExtResource("1_ag5ub")
 npc_name = "Sarha"
+dialogue_path = "res://JSON/Dialogue/sarha.json"
+has_side_quest = true
+side_quest_ref = 0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
