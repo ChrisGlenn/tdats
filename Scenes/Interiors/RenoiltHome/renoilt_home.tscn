@@ -14,6 +14,7 @@ position = Vector2(0, 1)
 script = ExtResource("1_xsiqc")
 stage_name = "~ Renoilt's Home ~"
 start_pos = [{
+"face_dir": 1,
 "position": Vector2(48, 64),
 "stage": 0
 }]

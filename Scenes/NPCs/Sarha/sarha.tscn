@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb6idxo7n35sb"]
+[gd_scene load_steps=9 format=3 uid="uid://bb6idxo7n35sb"]
 
 [ext_resource type="Texture2D" uid="uid://b0dimkwm3tshg" path="res://Sprites/Characters.png" id="1_a8j3d"]
 [ext_resource type="Script" path="res://Scripts/Templates/npc_template.gd" id="1_ag5ub"]
@@ -11,6 +11,14 @@ region = Rect2(128, 32, 16, 16)
 atlas = ExtResource("1_a8j3d")
 region = Rect2(144, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l618d"]
+atlas = ExtResource("1_a8j3d")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywi4b"]
+atlas = ExtResource("1_a8j3d")
+region = Rect2(176, 32, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wcn7k"]
 animations = [{
 "frames": [{
@@ -22,6 +30,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkDown",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l618d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywi4b")
+}],
+"loop": true,
+"name": &"walkUp",
 "speed": 0.0
 }]
 

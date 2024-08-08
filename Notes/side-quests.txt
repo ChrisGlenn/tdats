@@ -17,3 +17,4 @@ Defeat the General on the 6th floor and let Hessat know and he will award you wi
 [4] = Drk Heart:
 Zemariah, a Dark Guard, wants you to deliver a letter to his dying mother. He will give you information about the 'Hammer'.
 
+[5] = 

@@ -100,9 +100,10 @@ func update_hud(clock):
 				if Input.is_action_just_pressed("td_A"):
 					if diag_next: 
 						# check if a side quest needs to be updated
-						if dialogue_data.values()[diag_pos]["inc_quest"] == true:
+						if !Globals.in_cutscene and dialogue_data.values()[diag_pos]["inc_quest"] == true:
 							var side_quest_ref = int(dialogue_data.values()[diag_pos]["side_quest"]) # increment the side quest
 							Globals.side_quest[side_quest_ref] += 1 # increment the side quest status
+						# continue dialogue
 						DIALOGUE_TEXT.visible_characters = 0 # reset the visible characters
 						diag_pos += 1 # advance to the next dialogue line or close the dialogue
 			else:

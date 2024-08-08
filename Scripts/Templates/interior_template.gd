@@ -6,7 +6,7 @@ var check : bool = false # used as a check
 
 
 func _ready():
-	Globals.current_stage = stage_name # update the displayed 'stage name' for the UI
+	Globals.current_stage = stage_name # update the displayed 'stage name' for the UI\
 	start_position() # run the start position function
 
 func _process(_delta):
