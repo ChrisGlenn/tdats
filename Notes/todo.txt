@@ -50,6 +50,7 @@ TO-DO LIST(ALPHA):
     [] Member Two HUD Display
     [] Member Three HUD Display
     [] Opening Exposition Text/Images
+    [] Ending Cutscene
 [] Interactions
     [] Chests
         [] Chests Recording
@@ -86,8 +87,9 @@ TO-DO LIST(ALPHA):
         [] Dungeon Levels
         [] Map 'Exploration' (Map will reveal as player moves)
         [] Map Labels/Icons
-[] Interiors
+[] City Locations
     [x] Renoilt Home
+    [x] Renoilt Basement
     [] Paprii Inn and Tavern
     [] Mariah's Home
     [] Damarah's Home
@@ -96,7 +98,8 @@ TO-DO LIST(ALPHA):
     [] Mechmel's Home
     [] Jesha's Home
     [] Ruth's Home
-    [] Sarha's Home
+    [x] Sarha's Home
+    [x] Sarha's Basement
     [] Gath's Home
     [] Cain's Home
     [] Galil's Home
@@ -109,9 +112,20 @@ TO-DO LIST(ALPHA):
     [] Palphu's Potions
     [] Food Shops
     [] Stables
+[] Tower Levels
+    [] Entrance
+    [] Level 1
+    [] Level 2
+    [] Level 3
+    [] Level 4
+    [] Level 5
+    [] Level 6
+    [] Level 7
+    [] Level 8
+    [] Level 9
 [] System
     [x] Cutscene System
-    [] "Time" System (BTS only)
+    [x] "Time" System (BTS only)
     [] Save Game
     [] Load Game
     [] Options
@@ -120,7 +134,7 @@ TO-DO LIST(ALPHA):
 
 ALPHA BUG-FIX LIST:
     [] NPC's face player when talking to them (meaning they all need 4 direction sprites)
-    [] Redo dialogue 'stage' to take into account other factors like side-quests, random, ect...
+    [x] Redo dialogue 'stage' to take into account other factors like side-quests, random, ect...
     [] Add Starting Face Direction for Player in Interiors along w/ Position...
     [x] Keep character animations all in sync (Global timer?)
     [x] Transfer Cutscene data to JSON
